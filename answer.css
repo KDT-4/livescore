@@ -1,0 +1,23 @@
+
+hr {
+  border: none;
+  height: 2px;
+  background-color: #C1B5B5;
+  margin: 10px 0; /* 수평선 위아래 여백 조절 */
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+h2{
+  margin-left:20px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.function, .data, .chat {
+  margin-right: 10px; /* 이미지와 텍스트 사이 여백 조절 (선택사항) */
+  margin-left: 20px;
+}
