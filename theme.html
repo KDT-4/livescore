@@ -16,8 +16,8 @@
   </header>
 
   <div class="box">
+    <span class="slider-label">글자 크기</span>
     <div class="slider-container">
-      <label for="font-slider" class="slider-label">글자 크기</label>
       <div class="slider-row">
         <span class="slider-icon-small">A</span>
         <input type="range" id="font-slider" class="slider" min="1" max="100" value="50">
@@ -26,13 +26,34 @@
     </div>
   </div>
 
-  <div class="box screen-style-box">
-    <div class="screen-style-title">화면 스타일</div>
-    
+  <div class="box">
+    <span class="screen-styles">화면 스타일</span>
+    <div class="mode-container">
+      <div class="light-container">
+        <div class="light-mode"></div>
+        <div class="light-button">
+          <button class="light-mode-button" aria-label="라이트 모드 선택"></button>
+          <span class="light-mode-text">라이트 모드</span>
+        </div>
+      </div>
+      <div class="dark-container">
+        <div class="dark-mode"></div>
+        <div class="dark-button">
+          <button class="dark-mode-button" aria-label="라이트 모드 선택"></button>
+          <span class="dark-mode-text">다크 모드</span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="box">고객센터</div>
-  <div class="box">이용약관</div>
+  <div class="box">
+    <span class="service-center">고객센터</span>
+    <div class="frequently_questions">자주 묻는 질문</div>
+    <div class="contact_us">Contact Us</div>
+  </div>
+  <div class="box">
+    <span class="use-terms">이용약관</span>
+  </div>
 
   <nav class="nav">
     <a href="#" class="nav-item">
