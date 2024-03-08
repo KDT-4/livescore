@@ -30,16 +30,6 @@ h1 {
   margin-left: auto;
 }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  background-color: #fdfdfe;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
 .nav a {
   flex-grow: 1;
   text-align: center;
@@ -55,4 +45,15 @@ h1 {
 .nav-icon {
   height: 24px;
   margin-bottom: 5px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fdfdfe;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
 }
