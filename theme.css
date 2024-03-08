@@ -127,6 +127,7 @@
   }
 
   .light-mode, .dark-mode {
+    border: 2px solid transparent; /* 초기 테두리 설정 */
     height: 100px;
     width: 90%;
     margin-bottom: 8px;
