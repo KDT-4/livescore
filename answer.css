@@ -17,7 +17,7 @@ h2{
   align-items: center;
 }
 
-.function, .data, .chat {
+.function, .data, .chat, .wifi, .ring, .feedback {
   margin-right: 10px; /* 이미지와 텍스트 사이 여백 조절 (선택사항) */
   margin-left: 20px;
 }
