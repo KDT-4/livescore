@@ -1,0 +1,10 @@
+h2{
+  margin-left:20px;
+}
+
+.containers {
+  border-radius: 10px; /* 둥근 모서리 반경 설정 */
+  background-color: #f0f0f0; /* 배경 색상 설정 */
+  padding: 20px; /* 안 여백 설정 */
+  text-align: center; /* 텍스트 중앙 정렬 설정 */
+}

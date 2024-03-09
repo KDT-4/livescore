@@ -29,17 +29,16 @@ h1 {
 .icon-search {
   margin-left: auto;
 }
-
 .nav {
   display: flex;
   justify-content: space-between;
   background-color: #fdfdfe;
   padding: 10px;
-  position: fixed;
+  position: sticky;
   bottom: 0;
   width: 100%;
+  z-index: 100;
 }
-
 .nav a {
   flex-grow: 1;
   text-align: center;
@@ -56,3 +55,4 @@ h1 {
   height: 24px;
   margin-bottom: 5px;
 }
+
