@@ -1,5 +1,5 @@
 h2{
-  margin-left: 80px;
+  margin-left: 20px;
 }
 
 .containers {
@@ -82,19 +82,3 @@ input.rounded-box1 {
   font-size: 18px;
 }
 
-.effective {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color:#AAA3A3;
-  font-size: 18px;
-}
-
-.bold-text {
-  font-weight: bold;
-  color: #AAA3A3;
-  font-size: 18px;
-}
