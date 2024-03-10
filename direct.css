@@ -1,5 +1,5 @@
 h2{
-  margin-left:20px;
+  margin-left: 80px;
 }
 
 .containers {
@@ -7,4 +7,58 @@ h2{
   background-color: #f0f0f0; /* 배경 색상 설정 */
   padding: 20px; /* 안 여백 설정 */
   text-align: center; /* 텍스트 중앙 정렬 설정 */
+}
+
+.rounded-box {
+  border-radius: 18px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  width: 90%;
+  height: 50px;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  font-size: 18px;
+  display: flex;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px; /* 아래쪽 간격 설정 */
+  margin-top: 10px;
+}
+
+input.rounded-box {
+  border: none;
+  margin-bottom: 10px; /* 아래쪽 간격 설정 */
+}
+
+.rounded-box1 {
+  border-radius: 18px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  width: 90%;
+  height: 300px;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  font-size: 18px;
+  display: flex;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+input.rounded-box1 {
+  border: none;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  justify-content: center; /* 화면 가로 너비 가운데 정렬을 위해 추가 */
+  font-size: 30px;
+}
+
+.check input {
+  height: 30px; /* 원하는 높이로 설정 */
+  width: 30px; /* 원하는 너비로 설정 */
+  margin-right: 20px; /* checkbox와 글자 사이의 간격 설정 */
 }
