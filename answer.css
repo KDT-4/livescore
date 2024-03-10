@@ -21,3 +21,13 @@ h2{
   margin-right: 10px; /* 이미지와 텍스트 사이 여백 조절 (선택사항) */
   margin-left: 20px;
 }
+.rounded-box {
+  border-radius: 18px; /* 조절 가능한 radius 값 */
+  background-color: #f0f0f0; /* 배경색 설정 */
+  padding: 40px; /* 상하좌우 여백 설정 */
+  width: 60%; /* 너비를 60%로 설정 */
+  margin: 0 auto; /* 가운데 정렬 */
+  text-align: center;
+  font-size: 28px; /* font-size로 텍스트 크기 조절 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
