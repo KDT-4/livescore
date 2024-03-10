@@ -61,4 +61,40 @@ input.rounded-box1 {
   height: 30px; /* 원하는 높이로 설정 */
   width: 30px; /* 원하는 너비로 설정 */
   margin-right: 20px; /* checkbox와 글자 사이의 간격 설정 */
+  margin-top: 2px; /* checkbox를 세로 방향으로 조절하여 글씨와 높이를 맞춤 */
+}
+
+.kakaotalk {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.kakaotalk-icon {
+  margin-right: 10px;
+}
+
+.kakaotalk p {
+  margin-left: 20px;
+  color: #AAA3A3;
+  font-size: 18px;
+}
+
+.effective {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color:#AAA3A3;
+  font-size: 18px;
+}
+
+.bold-text {
+  font-weight: bold;
+  color: #AAA3A3;
+  font-size: 18px;
 }
