@@ -5,7 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkModeButton = document.querySelector('.dark-mode-button');
     const lightMode = document.querySelector('.light-mode');
     const darkMode = document.querySelector('.dark-mode');
+    const boxes = document.querySelectorAll('.box'); // 모든 박스 선택
   
+    // 초기 글자 크기 설정
+    const initialFontSize = 100; // 예: 100%
+    body.style.fontSize = `${initialFontSize}%`;
+
     // 글자 크기 조절
     slider.addEventListener('input', () => {
       const fontSize = slider.value;
@@ -14,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // 라이트 모드 버튼 클릭 이벤트
   lightModeButton.addEventListener('click', () => {
+    body.classList.remove('dark-mode-active'); // 다크 모드 클래스 제거
     body.style.backgroundColor = 'white'; // 배경을 흰색으로
     body.style.color = 'black'; // 텍스트 색상을 검정색으로
     lightMode.style.borderColor = 'lightblue'; // 라이트 모드 컨테이너에 파란색 테두리 추가
@@ -24,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 다크 모드 버튼 클릭 이벤트
   darkModeButton.addEventListener('click', () => {
+    body.classList.add('dark-mode-active'); // 다크 모드 클래스 추가
     body.style.backgroundColor = 'black'; // 배경을 검정색으로
     body.style.color = 'white'; // 텍스트 색상을 흰색으로
     darkMode.style.borderColor = 'lightblue'; // 다크 모드 컨테이너에 파란색 테두리 추가
