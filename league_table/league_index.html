@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="./league_style.css">
 
 </head>
-<body>
 <!-- partial:index.partial.html -->
 <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet"> 
 </head>
@@ -16,14 +15,23 @@
   <img src="../src/search.png" class="icon-search" alt="Search Icon">
 </header> <!-- partial -->
 
-
-<div class="sort-btn"> <!-- 종목 선택 버튼 -->
-    <button type = "button" class="btn_image" id="img_btn"><img src="../src/function.png"><br>축구</button>
-    <button type = "button" class="btn_image" id="img_btn"><img src="../src/function.png"><br>야구</button>
-    <button type = "button" class="btn_image" id="img_btn"><img src="../src/function.png"><br>농구</button>
-    <button type = "button" class="btn_image" id="img_btn"><img src="../src/function.png"><br>배구</button>
-</div> <!-- partial -->
-
+<div id="score_menu"> <!-- 종목 선택 버튼 -->
+	<ul>
+		<li class="soccer", style="list-style: none;"><a class="fLink">
+			<img src="../src/function.png"style="width: 100%; height: auto;"><b>축구</b></a>
+		</li>
+		<li class="baseball", style="list-style: none;"><a class="fLink"> 
+			<img src="../src/function.png"style="width: 100%; height: auto;"><b>야구</b></a>
+		</li>
+		<li class="basket", style="list-style: none;"><a class="fLink"> 
+			<img src="../src/function.png"style="width: 100%; height: auto;"><b>농구</b></a>
+		</li>
+		<li class="volley", style="list-style: none;"><a class="fLink"> 
+			<img src="../src/function.png"style="width: 100%; height: auto;"><b>배구</b></a>
+		</li>
+	</ul>
+</div>
+<body>
 <div class="ptable">
   <h1 class="headin"></h1>
 					<table>
