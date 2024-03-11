@@ -1,9 +1,11 @@
-body {
+  body {
     font-size: 15px;
     margin: 0;
     font-family: Arial, sans-serif;
+    padding-bottom: 100px;
   }
   
+
   .header {
     background-color: #526D82;
     color: white;
@@ -13,6 +15,7 @@ body {
     align-items: center;
     justify-content: space-between;
     position: sticky;
+    z-index: 999;
   }
   
   h1 {
@@ -24,7 +27,8 @@ body {
   .header img {
     height: 30px;
   }
-  
+
+
   .icon-search {
     margin-left: auto;
   }

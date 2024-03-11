@@ -2,6 +2,7 @@
     font-size: 15px;
     margin: 0;
     font-family: Arial, sans-serif;
+    padding-bottom: 100px;
   }
   
   .header {
@@ -13,6 +14,7 @@
     align-items: center;
     justify-content: space-between;
     position: sticky;
+    z-index: 999;
   }
 
   .header > .text-wrapper {
@@ -71,4 +73,16 @@
   
   .favorites {
     padding: 3%;
+  }
+
+  .department > p {
+    box-sizing: border-box;
+    text-align: center;
+    font-size: medium;
+
+    margin: 1px 0px;
+    padding: 30px;
+ 
+
+    background-color: #526d8242;
   }
