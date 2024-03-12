@@ -1,4 +1,20 @@
+// console.log test
 console.log("test")
+
+
+// sports icon 클릭 시 cliked css 적용
+document.addEventListener("DOMContentLoaded", function() {
+  const sportsIcons = document.querySelectorAll(".sports img");
+
+  sportsIcons.forEach(function(icon) {
+    icon.addEventListener("click", function() {
+      sportsIcons.forEach(function(icon) {
+        icon.classList.remove("clicked");
+      });
+      this.classList.add("clicked");
+    });
+  });
+});
 
 
 // 클릭시 즐겨찾기(별) 이미지 바꾸기
@@ -17,7 +33,7 @@ function toggleFavorite(imgElement) {
 //
 
 
-// score가 null 일경우 공백으로 치환
+// score가 null일 경우 공백으로 치환
 document.addEventListener('DOMContentLoaded', function() {
     var nullElements = document.querySelectorAll('.livescore-elemenet span');
     
@@ -47,24 +63,27 @@ document.addEventListener('DOMContentLoaded', function() {
 var dateInput = document.querySelector('.calendar input[type="date"]'); // input type="date"
 
 dateInput.addEventListener('change', function() {   // 날짜 선택 enectListener
-  var selectedDate = dateInput.value;  // 선택된 날짜 가져옴
+  var selectedDate = dateInput.value.trim();  // 선택된 날짜 가져옴 (공백 제거)
 
-  if (!selectedDate) { // 만약 선택된 날짜가 없다면
+  // 만약 선택된 날짜가 없다면 필터링 제거
+  if (!selectedDate) {
     var matchDates = document.querySelectorAll('.match_date');  // 모든 match_date 요소를 가져옴
     // matchdate loop
     matchDates.forEach(function(matchDate) {
-      matchDate.parentElement.style.display = 'block'; // 모든 요소를 보이도록 설정
+      matchDate.parentElement.classList.remove('hidden'); // hidden 클래스 제거
     });
-  } else { // 선택된 날짜가 있다면
+  }
+  // 선택된 날짜가 있다면 필터링
+  else {
     var formattedDate = selectedDate.split('-').slice(1).join('-'); // mm-dd로 포맷팅
     var matchDates = document.querySelectorAll('.match_date');  // match_date가 일치하면 가져옴
     // matchdate loop
     matchDates.forEach(function(matchDate) {
       // 일치하면 block 일치안하면 none
-      if (matchDate.textContent === formattedDate) { 
-        matchDate.parentElement.style.display = 'block';
+      if (matchDate.textContent.trim() === formattedDate) {  // trim() 추가
+        matchDate.parentElement.classList.remove('hidden'); // hidden 클래스 제거
       } else {
-        matchDate.parentElement.style.display = 'none';
+        matchDate.parentElement.classList.add('hidden'); // hidden 클래스 추가
       }
     });
   }
@@ -73,27 +92,53 @@ dateInput.addEventListener('change', function() {   // 날짜 선택 enectListen
 
 
 
+// 스포츠필터링
+var sportsImages = document.querySelectorAll('.sports img');
 
-// //
-// document.addEventListener("DOMContentLoaded", function() {
-//   const sportsIcons = document.querySelectorAll(".sports img");
+Array.from(sportsImages).forEach(function(image) {
+    image.addEventListener('click', function() {
+        var clickedClass = image.className; // 클릭된 이미지의 클래스 가져오기
+        var allMatchElements = document.querySelectorAll('.livescore-elemenet');
 
-//   sportsIcons.forEach(icon => {
-//     icon.addEventListener("click", function() {
-//       // 클릭된 이미지의 부모 요소를 찾음
-//       const parentElement = icon.parentElement;
+        if (clickedClass === 'icon-all') { // 클릭된 이미지가 'icon-all'이면 모든 경기 일정을 표시
+            allMatchElements.forEach(function(matchElement) {
+                matchElement.classList.remove('hidden'); // hidden 클래스 제거
+            });
+        } else {
+            allMatchElements.forEach(function(matchElement) {
+                if (matchElement.querySelector('.' + clickedClass)) {
+                    matchElement.classList.remove('hidden'); // hidden 클래스 제거
+                } else {
+                    matchElement.classList.add('hidden'); // hidden 클래스 추가
+                }
+            });
+        }
+        addHiddenClassToMatchDate();
+    });
+});
 
-//       // 부모 요소가 "livescore-element" 클래스를 가지고 있는지 확인
-//       if (parentElement.classList.contains("livescore-element")) {
-//         // 모든 "livescore-element" 클래스를 가진 요소를 숨김
-//         const allLivescoreElements = document.querySelectorAll(".livescore-element");
-//         allLivescoreElements.forEach(element => {
-//           element.style.display = "none";
-//         });
+// match_date 태그 hidden
+function addHiddenClassToMatchDate() {
+  var matchDateElements = document.querySelectorAll('.match_date');
 
-//         // 클릭된 이미지를 포함하는 요소만 표시
-//         parentElement.style.display = "block";
-//       }
-//     });
-//   });
-// });
+  matchDateElements.forEach(function(matchDateElement) {
+    var siblingMatchElements = matchDateElement.parentElement.querySelectorAll('.livescore-elemenet');
+    
+    var allHidden = true;
+    siblingMatchElements.forEach(function(element) {
+      if (!element.classList.contains('hidden')) {
+        allHidden = false;
+        return;
+      }
+    });
+
+    if (allHidden) {
+      matchDateElement.classList.add('hidden');
+    } else {
+      matchDateElement.classList.remove('hidden');
+    }
+  });
+}
+
+
+
