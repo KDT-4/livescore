@@ -1,11 +1,13 @@
+  /* padding-bottom을 navi 높이만큼 설정해주어야 스크롤을 하단 끝까지 내렸을때, 요소 안가려짐 임의로 100px로 설정함 */
   body {
     font-size: 15px;
     margin: 0;
     font-family: Arial, sans-serif;
     padding-bottom: 100px;
   }
-  
+  /**/
 
+  /* header z-index 999로 설정 해야 항상 상단에 표시 */
   .header {
     background-color: #526D82;
     color: white;
@@ -17,22 +19,17 @@
     position: sticky;
     z-index: 999;
   }
-  
-  h1 {
+  .header > h1 {
     flex-grow: 1;
     text-align: center;
     margin: 0;
   }
-  
   .header img {
     height: 30px;
   }
-
-
   .icon-search {
     margin-left: auto;
   }
-  
   .nav {
     display: flex;
     justify-content: space-between;
@@ -40,9 +37,9 @@
     padding: 10px;
     position: fixed;
     bottom: 0;
-    width: calc(100% - 1px);
+    width: 100%;
+    /* width: calc(100% - 1px); */
   }
-  
   .nav a {
     flex-grow: 1;
     text-align: center;
@@ -54,28 +51,43 @@
     align-items: center;
     justify-content: center;
   }
-  
   .nav-icon {
     height: 24px;
     margin-bottom: 5px;
   }
-  
+  /* 기본 style 템플릿*/
+  /* ---------------------------------------- */
+
+
+  /* ------------ home.html ----------------- */
   .home {
     margin: 20px 5%;
   }
-  /*  */
+  /* sports */
   .home > .sports {
     box-sizing: border-box;
     display: flex;
     overflow: auto;
-    /* background-color: black; */
     height: 80px;
+    /* background-color: rgba(99, 154, 77, 0.5); */
     /* padding: 20px; */
-  
     border: 1px solid rgba(0,0,0,.1);
     border-radius: 10px;
-    cursor: pointer;
+    cursor: pointer; /* 모바일 불필요 pc테스트용*/
   }
+  .home > .sports::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera에서 스크롤바 숨기기 기능 */
+  }
+  .home > .sports > img {
+    margin: 20px;
+  }
+  .home > .sports > img:hover {
+    margin: 20px;
+    animation: shadow-drop-center 0.1s ease;
+  }
+  /**/
+
+  /* calendar */
   .home > .calendar {
     box-sizing: border-box;
     display: flex;
@@ -85,29 +97,14 @@
     border-bottom: 1px solid rgba(0,0,0,.1);
     /* border-radius: 10px; */
   }
-  
   .home > .calendar > img {
     box-sizing: border-box;
     padding:30px 0px 30px 30px;
     max-height: 100%;
     max-width: 100%;
-  
   }
   
-  
-  .home > .sports::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera에서 스크롤바 숨김 */
-  }
-  .home > .sports > img {
-    margin: 20px;
-  }
-  .home > .sports > img:hover {
-    margin: 20px;
-    animation: shadow-drop-center 0.1s ease;
-  }
-  
-  /* 그림자 */
-  @keyframes shadow-drop-center {
+  @keyframes shadow-drop-center {   /* sports 요소 아이콘 그림자 --> 필요없지만 예시*/
     0% {
       -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
               box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
@@ -117,8 +114,9 @@
               box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
     }
   }
-  
-  /* 아니 달력 아이콘 못옮기네.. */
+  /**/
+
+  /* 달력 아이콘 바꾸기 */
   input[type="date"] {
     position: relative;
     width: 150px;
@@ -142,11 +140,17 @@
     color: transparent;
     cursor: pointer;
   }
+  /**/
   
-  
+
+  /* section livesscore의 mm-yy margin 설정 */
   .match_date {
     margin: 10px 0 2px 5px;
   }
+  /**/
+
+
+  /* livescore style설정 */
   .livescore-elemenet {
     position: relative;
     display: flex;
@@ -158,28 +162,22 @@
     padding: 0px 50px;
     margin: 0;
   }
-  
   .livescore-elemenet > .sports-icon {
     box-sizing: border-box;
     display: flex;
     overflow: auto;
     height: 80px;
     padding: 30px 10px;
-    /* 뭐하고있었ㄸㅆㅇ떤거지 */
     position: absolute;
     left: 5px;
-
-    
   }
   .livescore-elemenet > span {
     flex: 1;
     text-align: center; 
   }
-
   .livescore-elemenet > span:nth-child(4) {
-    flex: 0; /* 3번쨰 가운데정렬 */
+    flex: 0; /* 4번째로 가운데정렬 */ /* 경기시간 요소 기준으로 가운데정렬*/
   }
-
   .livescore-elemenet > .star {
     position: absolute;
     height: 20px;
@@ -187,8 +185,12 @@
     top: 5px;
     right: 5px;
   }
-  
+
+
+  /* today 경기 style 예시 --> background colore 만 설정함 */
+  /* 나중에 JS로 today날짜 받아오도록 바꿔야함 */
   #proceeding > *:not(:first-child) {
     border-radius: 12px;
     background-color: rgba(0, 0, 0, .1);
-}
+  }
+  /**/
