@@ -140,5 +140,27 @@ function addHiddenClassToMatchDate() {
   });
 }
 
+// 오늘 날짜를 받아와서 포맷팅
+var today = new Date();
+var month = (today.getMonth() + 1).toString().padStart(2, '0');
+var date = today.getDate().toString().padStart(2, '0');
+var formattedDate = month + "-" + date; // 출력형식: MM-DD
+// 오늘 날짜인 livescore-element 요소에 style 적용.
+document.addEventListener("DOMContentLoaded", function() {
+  var matchDates = document.querySelectorAll('.match_date');
 
+  matchDates.forEach(function(matchDate) {
+      if (matchDate.textContent.trim() === formattedDate) {
+          var siblingElement = matchDate.nextSibling; // match_date 요소의 다음 형제 요소를 가져옵니다.
+          while (siblingElement) {
+              if (siblingElement.classList && siblingElement.classList.contains('livescore-elemenet')) {
+                  siblingElement.style.borderRadius = '12px';
+                  siblingElement.style.backgroundColor = 'rgba(0, 0, 0, .1)';
+              }
+              siblingElement = siblingElement.nextSibling; // 다음 형제 요소로 이동합니다.
+          }
+      }
+  });
+});
+//
 

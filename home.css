@@ -58,6 +58,9 @@
   /* 기본 style 템플릿*/
   /* ---------------------------------------- */
 
+  #nav-item1 .nav-icon {
+    filter: invert(70%) sepia(99%) saturate(5414%) hue-rotate(170deg) brightness(102%) contrast(97%);
+  }
 
   /* ------------ home.html ----------------- */
   .home {
@@ -189,14 +192,6 @@
     top: 5px;
     right: 5px;
   }
-
-  /* today 경기 style 예시 --> background colore 만 설정함 */
-  /* 나중에 JS로 today날짜 받아오도록 바꿔야함 */
-  #proceeding > *:not(:first-child) {
-    border-radius: 12px;
-    background-color: rgba(0, 0, 0, .1);
-  }
-  /**/
 
   /* hidden필터링 */
   .hidden {
