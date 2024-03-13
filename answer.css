@@ -15,7 +15,7 @@ h2{
 .container, .container1, .container2, .container3, .container4, .container5 {
   display: flex;
   align-items: center;
-
+  z-index:200;
 }
 
 .function, .data, .chat, .wifi, .ring, .feedback {

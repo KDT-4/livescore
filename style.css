@@ -6,6 +6,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  top:0;
+  position: sticky;
+  z-index: 999;
 }
 
 h1 {
@@ -30,9 +33,10 @@ h1 {
   justify-content: space-between;
   background-color: #fdfdfe;
   padding: 10px;
-  position: sticky;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  width: calc(100% - 1px);
   z-index: 100;
 }
 
