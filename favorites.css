@@ -1,9 +1,13 @@
-body {
+  /* padding-bottom을 navi 높이만큼 설정해주어야 스크롤을 하단 끝까지 내렸을때, 요소 안가려짐 */
+  body {
     font-size: 15px;
     margin: 0;
     font-family: Arial, sans-serif;
+    padding-bottom: 100px;
   }
-  
+  /**/
+
+  /* header z-index 999로 설정 해야 항상 상단에 표시 */
   .header {
     background-color: #526D82;
     color: white;
@@ -13,22 +17,19 @@ body {
     align-items: center;
     justify-content: space-between;
     position: sticky;
+    z-index: 999;
   }
-  
-  h1 {
+  .header > h1 {
     flex-grow: 1;
     text-align: center;
     margin: 0;
   }
-  
   .header img {
     height: 30px;
   }
-  
   .icon-search {
     margin-left: auto;
   }
-  
   .nav {
     display: flex;
     justify-content: space-between;
@@ -36,9 +37,9 @@ body {
     padding: 10px;
     position: fixed;
     bottom: 0;
-    width: calc(100% - 1px);
+    width: 100%;
+    /* width: calc(100% - 1px); */
   }
-  
   .nav a {
     flex-grow: 1;
     text-align: center;
@@ -50,16 +51,50 @@ body {
     align-items: center;
     justify-content: center;
   }
-  
   .nav-icon {
     height: 24px;
     margin-bottom: 5px;
   }
-  
-  .home {
-    margin: 20px 5%;
+  /* 기본 style 템플릿*/
+  /* ---------------------------------------- */
+
+  #nav-item2 .nav-icon {
+    filter: invert(70%) sepia(99%) saturate(5414%) hue-rotate(170deg) brightness(102%) contrast(97%);
   }
-  
-  .favorites {
-    padding: 10px 3% 3% 3%;
+
+  /* */
+  /* livescore style설정 */
+  .livescore-elemenet {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    padding: 0px 50px;
+    margin: 0;
+  }
+  .livescore-elemenet  .sports-icon {
+    box-sizing: border-box;
+    display: flex;
+    overflow: auto;
+    height: 80px;
+    padding: 30px 10px;
+    position: absolute;
+    left: 5px;
+  }
+  .livescore-elemenet  span {
+    flex: 1;
+    text-align: center; 
+  }
+  .livescore-elemenet  span:nth-child(4) {
+    flex: 0; /* 4번째로 가운데정렬 */ /* 경기시간 요소 기준으로 가운데정렬*/
+  }
+  .livescore-elemenet  .star {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 5px;
+    right: 5px;
   }

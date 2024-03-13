@@ -17,19 +17,53 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// 클릭시 즐겨찾기(별) 이미지 바꾸기
+// 클릭시 즐겨찾기(별) 이미지 바꾸기 % 로컬스토리지에 저장
 function toggleFavorite(imgElement) {
-    var value = imgElement.getAttribute('value');
-    if (value === 'Unfavorites') {
-        // 즐겨찾기 추가
-        imgElement.src = './src/star.png';
-        imgElement.setAttribute('value', 'favorites');
-    } else {
-        // 즐겨찾기 취소
-        imgElement.src = './src/non-star.png';
-        imgElement.setAttribute('value', 'Unfavorites');
+  var value = imgElement.getAttribute('value');
+  var elementId = imgElement.parentElement.id; // livescore-element의 id 가져오기
+  if (value === 'Unfavorites') {
+    // 즐겨찾기 추가
+    imgElement.src = './src/star.png';
+    imgElement.setAttribute('value', 'favorites');
+    localStorage.setItem(elementId, 'favorites'); // 로컬 스토리지에 저장
+    // 해당 livescore-element를 같이 저장
+    var element = document.getElementById(elementId);
+    if (element) {
+      var htmlString = element.outerHTML;
+      localStorage.setItem('savedElement', htmlString);
     }
+  } else {
+    // 즐겨찾기 취소
+    imgElement.src = './src/non-star.png';
+    imgElement.setAttribute('value', 'Unfavorites');
+    localStorage.removeItem(elementId); // 로컬 스토리지에서 제거
+    // 저장된 livescore-element요소도 제거
+    localStorage.removeItem('savedElement');
+  }
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // 로컬 스토리지에서 값 가져옴.
+  for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    var value = localStorage.getItem(key);
+    // HTML 내용 수정.
+    var livescoreElement = document.getElementById(key);
+    if (livescoreElement) {
+      var imgElement = livescoreElement.querySelector('.star');
+      if (imgElement) {
+        if (value === 'favorites') {
+          imgElement.src = './src/star.png';
+          imgElement.setAttribute('value', 'favorites');
+        } else {
+          imgElement.src = './src/non-star.png';
+          imgElement.setAttribute('value', 'Unfavorites');
+        }
+      }
+    }
+  }
+});
 //
 
 
@@ -145,19 +179,19 @@ var today = new Date();
 var month = (today.getMonth() + 1).toString().padStart(2, '0');
 var date = today.getDate().toString().padStart(2, '0');
 var formattedDate = month + "-" + date; // 출력형식: MM-DD
-// 오늘 날짜인 livescore-element 요소에 style 적용.
+// 오늘 날짜인 livescore-element 요소에 style 적용
 document.addEventListener("DOMContentLoaded", function() {
   var matchDates = document.querySelectorAll('.match_date');
 
   matchDates.forEach(function(matchDate) {
       if (matchDate.textContent.trim() === formattedDate) {
-          var siblingElement = matchDate.nextSibling; // match_date 요소의 다음 형제 요소를 가져옵니다.
+          var siblingElement = matchDate.nextSibling; // match_date 요소의 다음 형제 요소를 가져옴
           while (siblingElement) {
               if (siblingElement.classList && siblingElement.classList.contains('livescore-elemenet')) {
                   siblingElement.style.borderRadius = '12px';
                   siblingElement.style.backgroundColor = 'rgba(0, 0, 0, .1)';
               }
-              siblingElement = siblingElement.nextSibling; // 다음 형제 요소로 이동합니다.
+              siblingElement = siblingElement.nextSibling; // 다음 형제 요소로 이동
           }
       }
   });
