@@ -20,33 +20,57 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 
-  function sendChat() {
-    let chatText = chatInput.value.trim();
+  window.onload = loadChat;
 
-    if (chatText.length > 300) {
-      chatText = chatText.substring(0, 300);
-    }
-
-      if (chatText !== '') {
-          chatInput.value = '';
-
+    function loadChat() {
+          livechat.forEach(chat => {
           const newChat = document.createElement('div');
           newChat.classList.add('chat');
-
+  
           const chatIcon = document.createElement('img');
           chatIcon.src = 'src/profile.png';
           chatIcon.classList.add('chat-icon');
-
+  
           const chatContent = document.createElement('div');
           chatContent.classList.add('chat-text');
-          chatContent.textContent = chatText;
+          chatContent.textContent = chat.content;
 
           newChat.appendChild(chatIcon);
           newChat.appendChild(chatContent);
-
+  
           chatsContainer.appendChild(newChat);
+      });
 
-          chatsContainer.scrollTop = chatsContainer.scrollHeight;
+      chatsContainer.scrollTop = chatsContainer.scrollHeight;
+    }
+
+    function sendChat() {
+      let chatText = chatInput.value.trim();
+
+      if (chatText.length > 300) {
+        chatText = chatText.substring(0, 300);
       }
-  }
+
+        if (chatText !== '') {
+            chatInput.value = '';
+
+            const newChat = document.createElement('div');
+            newChat.classList.add('chat');
+
+            const chatIcon = document.createElement('img');
+            chatIcon.src = 'src/profile.png';
+            chatIcon.classList.add('chat-icon');
+
+            const chatContent = document.createElement('div');
+            chatContent.classList.add('chat-text');
+            chatContent.textContent = chatText;
+
+            newChat.appendChild(chatIcon);
+            newChat.appendChild(chatContent);
+
+            chatsContainer.appendChild(newChat);
+
+            chatsContainer.scrollTop = chatsContainer.scrollHeight;
+        }
+    }
 });
