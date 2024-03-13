@@ -32,7 +32,7 @@ function toggleFavorite(imgElement) {
 
   if (value === 'Unfavorites') {
     // 즐겨찾기 추가
-    imgElement.src = './src/star.png';
+    imgElement.src = './src/star2.png';
     imgElement.setAttribute('value', 'favorites');
     // 로컬 스토리지에 저장
     if (elementId) {
@@ -41,7 +41,7 @@ function toggleFavorite(imgElement) {
     }
   } else {
     // 즐겨찾기 취소
-    imgElement.src = './src/non-star.png';
+    imgElement.src = './src/star1.png';
     imgElement.setAttribute('value', 'Unfavorites');
     // 로컬 스토리지에서 제거
     localStorage.removeItem(elementId);
@@ -62,9 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
       if (imgElement) {
         var value = imgElement.getAttribute('value');
         if (value === 'favorites') {
-          imgElement.src = './src/star.png';
+          imgElement.src = './src/star2.png';
         } else {
-          imgElement.src = './src/non-star.png';
+          imgElement.src = './src/star1.png';
         }
       }
     }
