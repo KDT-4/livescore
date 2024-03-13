@@ -3,10 +3,10 @@ var favoriteIcon = document.querySelector('.favorite-icon');
 favoriteIcon.addEventListener('click', function() {
     var starIcon = favoriteIcon.querySelector('.star-icon');
 
-    if (starIcon.src.includes('src/star1.png')) {
-        starIcon.src = 'src/star2.png';
+    if (starIcon.src.includes('src/star_empty.png')) {
+        starIcon.src = 'src/star_full.png';
     } else {
-        starIcon.src = 'src/star1.png';
+        starIcon.src = 'src/star_empty.png';
     }
 });
 
