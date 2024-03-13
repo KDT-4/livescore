@@ -15,18 +15,27 @@ window.onload = function() {
 };
 
 function loadElementFromLocalStorage() {
-  var savedHTML = localStorage.getItem('savedElement');
-  if (savedHTML) {
-    var container = document.createElement('div');
-    container.innerHTML = savedHTML;
+  // 로컬스토리지의 데이터 수
+  var localStorageLength = localStorage.length;
+  
+  // 모든 키에 대해 loop해서 값 가져오기
+  for (var i = 0; i < localStorageLength; i++) {
+    var key = localStorage.key(i);
+    var savedHTML = localStorage.getItem(key);
     
-    var livescoreSection = document.querySelector('.livescore');
-    if (livescoreSection) {
-      // 저장된 요소를 livescore 섹션 안에 추가
-      livescoreSection.appendChild(container.firstElementChild);
+    if (savedHTML) {
+      var container = document.createElement('div');
+      container.innerHTML = savedHTML;
+      
+      var livescoreSection = document.querySelector('.livescore');
+      if (livescoreSection) {
+        // 저장된 요소를 livescore 섹션 안에 추가
+        livescoreSection.appendChild(container.firstElementChild);
+      }
     }
   }
 }
+
 
 // 클릭시 즐겨찾기(별) 이미지 바꾸기 % 로컬스토리지에 저장
 function toggleFavorite(imgElement) {

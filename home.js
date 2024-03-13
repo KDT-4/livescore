@@ -25,20 +25,18 @@ function toggleFavorite(imgElement) {
     // 즐겨찾기 추가
     imgElement.src = './src/star.png';
     imgElement.setAttribute('value', 'favorites');
-    localStorage.setItem(elementId, 'favorites'); // 로컬 스토리지에 저장
-    // 해당 livescore-element를 같이 저장
+    // 로컬 스토리지에 저장
     var element = document.getElementById(elementId);
     if (element) {
       var htmlString = element.outerHTML;
-      localStorage.setItem('savedElement', htmlString);
+      localStorage.setItem(elementId, htmlString);
     }
   } else {
     // 즐겨찾기 취소
     imgElement.src = './src/non-star.png';
     imgElement.setAttribute('value', 'Unfavorites');
-    localStorage.removeItem(elementId); // 로컬 스토리지에서 제거
-    // 저장된 livescore-element요소도 제거
-    localStorage.removeItem('savedElement');
+    // 로컬 스토리지에서 제거
+    localStorage.removeItem(elementId);
   }
 }
 
@@ -47,16 +45,19 @@ document.addEventListener('DOMContentLoaded', function() {
   // 로컬 스토리지에서 값 가져옴.
   for (var i = 0; i < localStorage.length; i++) {
     var key = localStorage.key(i);
-    var value = localStorage.getItem(key);
+    var htmlString = localStorage.getItem(key);
     // HTML 내용 수정.
-    var livescoreElement = document.getElementById(key);
-    if (livescoreElement) {
-      var imgElement = livescoreElement.querySelector('.star');
-      if (imgElement) {
-        if (value === 'favorites') {
+    if (htmlString) {
+      var matches = htmlString.match(/value="favorites"/);
+      if (matches && matches.length > 0) {
+        var imgElement = document.querySelector('#' + key + ' .star');
+        if (imgElement) {
           imgElement.src = './src/star.png';
           imgElement.setAttribute('value', 'favorites');
-        } else {
+        }
+      } else {
+        var imgElement = document.querySelector('#' + key + ' .star');
+        if (imgElement) {
           imgElement.src = './src/non-star.png';
           imgElement.setAttribute('value', 'Unfavorites');
         }
@@ -64,6 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 });
+
+
 //
 
 

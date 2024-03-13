@@ -75,7 +75,7 @@
     padding: 0px 50px;
     margin: 0;
   }
-  .livescore-elemenet  .sports-icon {
+  .livescore-elemenet .sports-icon {
     box-sizing: border-box;
     display: flex;
     overflow: auto;
@@ -84,14 +84,14 @@
     position: absolute;
     left: 5px;
   }
-  .livescore-elemenet  span {
+  .livescore-elemenet span {
     flex: 1;
     text-align: center; 
   }
-  .livescore-elemenet  span:nth-child(4) {
+  .livescore-elemenet span:nth-child(4) {
     flex: 0; /* 4번째로 가운데정렬 */ /* 경기시간 요소 기준으로 가운데정렬*/
   }
-  .livescore-elemenet  .star {
+  .livescore-elemenet .star {
     position: absolute;
     height: 20px;
     width: 20px;
