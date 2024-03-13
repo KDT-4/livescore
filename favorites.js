@@ -1,10 +1,10 @@
-// home.html로 이동
+// index.html로 이동
 document.addEventListener('DOMContentLoaded', function() {
 
   var favoritesLink = document.getElementById('nav-item1');
 
   favoritesLink.addEventListener('click', function(event) {
-    window.location.href = 'home.html';
+    window.location.href = 'index.html';
   });
 });
 //
