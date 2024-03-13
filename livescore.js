@@ -24,7 +24,7 @@ function selectMenu(menu, event) {
     content.style.display = 'none';
   });
 
-  document.getElementById(menu + 'Content').style.display = 'block';
+  document.getElementById(menu + 'Content').style.display = 'flex';
 
   if (menu === 'comments') {
     document.getElementById('typingArea').style.display = 'flex';
