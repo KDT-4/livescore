@@ -74,7 +74,7 @@ function toggleFavorite(imgElement) {
 
   if (value === 'Unfavorites') {
     // 즐겨찾기 추가
-    imgElement.src = './src/star.png';
+    imgElement.src = './src/star2.png';
     imgElement.setAttribute('value', 'favorites');
     localStorage.setItem(elementId, 'favorites'); // 로컬 스토리지에 저장
     // 해당 livescore-element를 같이 저장
@@ -82,7 +82,7 @@ function toggleFavorite(imgElement) {
     localStorage.setItem('savedElement', htmlString);
   } else {
     // 즐겨찾기 취소
-    imgElement.src = './src/non-star.png';
+    imgElement.src = './src/star1.png';
     imgElement.setAttribute('value', 'Unfavorites');
     localStorage.removeItem(elementId); // 로컬 스토리지에서 제거
     // 저장된 livescore-element요소도 제거
