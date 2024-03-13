@@ -2,19 +2,27 @@
 console.log("test")
 
 
-// sports icon 클릭 시 cliked css 적용
+// 클릭 시 이미지 filter style 적용. 스포츠 필터기능의 selectedClass 의 값으로 판단함
 document.addEventListener("DOMContentLoaded", function() {
   const sportsIcons = document.querySelectorAll(".sports img");
 
   sportsIcons.forEach(function(icon) {
-    icon.addEventListener("click", function() {
-      sportsIcons.forEach(function(icon) {
-        icon.classList.remove("clicked");
+      icon.addEventListener("click", function() {
+          // 모든 아이콘의 필터 효과 초기화
+          sportsIcons.forEach(function(icon) {
+              icon.style.filter = "none";
+          });
+
+          // 선택된 아이콘에 대해서만 필터 효과 적용
+          if (selectedClass === this.className) {
+              this.style.filter = "invert(70%) sepia(99%) saturate(5414%) hue-rotate(170deg) brightness(102%) contrast(97%)";
+          }
       });
-      this.classList.add("clicked");
-    });
   });
 });
+
+
+
 
 
 // 클릭시 즐겨찾기(별) 이미지 바꾸기 % 로컬스토리지에 저장
@@ -131,51 +139,63 @@ dateInput.addEventListener('change', function() {   // 날짜 선택 enectListen
 
 // 스포츠필터링
 var sportsImages = document.querySelectorAll('.sports img');
+var selectedClass = null; // 초기값은 null
 
 Array.from(sportsImages).forEach(function(image) {
     image.addEventListener('click', function() {
-        var clickedClass = image.className; // 클릭된 이미지의 클래스 가져오기
-        var allMatchElements = document.querySelectorAll('.livescore-elemenet');
-
-        if (clickedClass === 'icon-all') { // 클릭된 이미지가 'icon-all'이면 모든 경기 일정을 표시
-            allMatchElements.forEach(function(matchElement) {
-                matchElement.classList.remove('hidden'); // hidden 클래스 제거
-            });
+        if (selectedClass === image.className) {
+            selectedClass = null; // 이미 선택된 이미지를 클릭하면 selectedClass를 null로 설정
         } else {
-            allMatchElements.forEach(function(matchElement) {
-                if (matchElement.querySelector('.' + clickedClass)) {
-                    matchElement.classList.remove('hidden'); // hidden 클래스 제거
-                } else {
-                    matchElement.classList.add('hidden'); // hidden 클래스 추가
-                }
-            });
+            selectedClass = image.className; // 클릭된 이미지의 클래스를 selectedClass 변수에 저장
         }
-        addHiddenClassToMatchDate();
+        filterMatches(); // 필터링 함수 호출
+        addHiddenClassToMatchDate(); // match_date 태그 hidden 처리 함수 호출
+        console.log(selectedClass)
     });
 });
 
-// match_date 태그 hidden
-function addHiddenClassToMatchDate() {
-  var matchDateElements = document.querySelectorAll('.match_date');
+// 경기 일정 필터링
+function filterMatches() {
+    var allMatchElements = document.querySelectorAll('.livescore-elemenet');
 
-  matchDateElements.forEach(function(matchDateElement) {
-    var siblingMatchElements = matchDateElement.parentElement.querySelectorAll('.livescore-elemenet');
-    
-    var allHidden = true;
-    siblingMatchElements.forEach(function(element) {
-      if (!element.classList.contains('hidden')) {
-        allHidden = false;
-        return;
-      }
+    allMatchElements.forEach(function(matchElement) {
+        if (selectedClass) { // selectedClass가 null이 아니면 해당 클래스에 맞는 일정만 표시
+            if (matchElement.querySelector('.' + selectedClass)) {
+                matchElement.classList.remove('hidden');
+            } else {
+                matchElement.classList.add('hidden');
+            }
+        } else { // selectedClass가 null이면 모든 경기 일정을 표시
+            matchElement.classList.remove('hidden');
+        }
     });
-
-    if (allHidden) {
-      matchDateElement.classList.add('hidden');
-    } else {
-      matchDateElement.classList.remove('hidden');
-    }
-  });
 }
+
+// match_date 태그 hidden 처리
+function addHiddenClassToMatchDate() {
+    var matchDateElements = document.querySelectorAll('.match_date');
+
+    matchDateElements.forEach(function(matchDateElement) {
+        var siblingMatchElements = matchDateElement.parentElement.querySelectorAll('.livescore-elemenet');
+        var allHidden = true;
+
+        siblingMatchElements.forEach(function(element) {
+            if (!element.classList.contains('hidden')) {
+                allHidden = false;
+                return;
+            }
+        });
+
+        if (allHidden) {
+            matchDateElement.classList.add('hidden');
+        } else {
+            matchDateElement.classList.remove('hidden');
+        }
+    });
+}
+
+
+
 
 // 오늘 날짜를 받아와서 포맷팅
 var today = new Date();

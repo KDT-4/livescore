@@ -89,9 +89,7 @@
     margin: 20px;
     animation: shadow-drop-center 0.1s ease;
   }
-  .clicked { /* click시 적용 css */
-    filter: invert(70%) sepia(99%) saturate(5414%) hue-rotate(170deg) brightness(102%) contrast(97%);
-  }
+
   /**/
 
   /* calendar */
