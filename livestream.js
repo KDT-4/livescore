@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   chatInput.addEventListener('keypress', function(event) {
       if (event.key === 'Enter') {
-          sendChat();
+        event.preventDefault();
+        sendChat();
       }
   });
 
