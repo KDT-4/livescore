@@ -5,6 +5,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  top: 0; /* 추가 */
+  position: sticky; /* 추가 */
+  z-index: 999; /* 추가 */
 }
 
 h1 {
@@ -29,9 +32,9 @@ h1 {
   justify-content: space-between;
   background-color: #fdfdfe;
   padding: 10px;
-  position: sticky;
+  position: fixed;  /* 변경 */
   bottom: 0;
-  width: 100%;
+  width: calc(100% - 1px);  /* 변경 */
   z-index: 100;
 }
 
@@ -55,4 +58,6 @@ h1 {
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  font-size: 15px;  /* 추가 */
+  padding-bottom: 100px;  /* 추가 */
 }
