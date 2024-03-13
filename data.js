@@ -178,8 +178,6 @@ const teams = [
     { team_no: 118, team_name: '환경디자인원예피구', event_no: 3, dept_no: 24 },
     { team_no: 119, team_name: '환경디자인원예발야구', event_no: 4, dept_no: 24 },
     { team_no: 120, team_name: '환경디자인원예육상', event_no: 5, dept_no: 24 },
-
-
 ];
 
 
@@ -212,15 +210,30 @@ const play = [
 ];
 
 const comment = [
-    { cmt_no: 1, content: '댓글 내용', time: '2024-03-10 12:00:00', match_no: 1 },
+    { cmt_no: 1, content: '두비두비두', time: '2024-03-10 12:00:00', match_no: 4 },
+    { cmt_no: 2, content: '두비두비두', time: '2024-03-12 12:00:00', match_no: 4 },
+    { cmt_no: 3, content: '두비두비두', time: '2024-03-13 12:00:00', match_no: 4 },
+    { cmt_no: 4, content: '두비두비두', time: '2024-03-14 00:00:00', match_no: 4 },
+    { cmt_no: 5, content: '두비두비두', time: '2024-03-14 01:00:00', match_no: 4 },
+    { cmt_no: 6, content: '두비두비두', time: '2024-03-14 02:00:00', match_no: 4 },
+    { cmt_no: 7, content: '두비두비두', time: '2024-03-14 03:00:00', match_no: 4 },
+    { cmt_no: 8, content: '두비두비두', time: '2024-03-14 03:22:00', match_no: 4 },
 ];
 
 const livechat = [
-    { chat_no: 1, content: '채팅 내용', time: '2024-03-10 12:00:00', match_no: 1 },
+    { chat_no: 1, content: '두비두비두', time: '2024-03-10 12:00:00', match_no: 4 },
+    { chat_no: 2, content: '두비두비두', time: '2024-03-10 12:00:00', match_no: 4 },
+    { chat_no: 3, content: '두비두비두', time: '2024-03-10 12:00:00', match_no: 4 },
+    { chat_no: 4, content: '두비두비두', time: '2024-03-10 12:00:00', match_no: 4 },
+    { chat_no: 5, content: '두비두비두', time: '2024-03-10 12:00:00', match_no: 4 },
+    { chat_no: 6, content: '두비두비두', time: '2024-03-10 12:00:00', match_no: 4 },
+    { chat_no: 7, content: '두비두비두', time: '2024-03-10 12:00:00', match_no: 4 },
+    { chat_no: 8, content: '두비두비두', time: '2024-03-10 12:00:00', match_no: 4 },
 ];
 
-
+/*
 // 안되는데?
+// 안되네ㅜ
 export {
     event,
     department,
@@ -229,3 +242,4 @@ export {
     play
     // 나머지 ...
 };
+*/
