@@ -81,7 +81,7 @@
 }
 
 .second-container {
-    height: 465px;
+    height: 465px; /*379*/
     position: relative;
     background-color: #eff0ed;
     border-radius: 10px;
@@ -204,6 +204,7 @@
 }
 
 .comment-text {
+    text-align: left;
     margin-left: 10px;
     overflow-wrap: break-word;
 }
@@ -218,7 +219,7 @@
     background-color: #eff0ed;
     padding: 5px;
     border-radius: 20px;
-    margin: 20px;
+    margin: 30px;
 }
 
 .profile-icon {

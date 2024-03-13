@@ -19,14 +19,14 @@
       <img src="src/soccer.png" class="soccer-icon" alt="Soccer Icon">
   </div>
     <div class="favorite-icon">
-      <img src="src/star.png" class="star-icon" alt="Favorite Icon">
+      <img src="src/star1.png" class="star-icon" alt="Favorite Icon">
   </div>
     <div class="team">
       <img src="src/cs.png" class="team-logo" alt="CS Logo">
       <span class="team-nickname">CS</span>
       <span class="team-name">Computer Science</span>
   </div>
-  <div class="score">2 - 1</div>
+  <div class="score">1 - 0</div>
   <div class="team">
       <img src="src/a&d.png" class="team-logo" alt="A&D Logo">
       <span class="team-nickname">A&D</span>
@@ -39,9 +39,9 @@
 
   <div class="second-container">
     <div class="top">
-      <button class="menu-btn selected" onclick="selectMenu('record')">전적</button>
-      <button class="menu-btn" onclick="selectMenu('lineup')">라인업</button>
-      <button class="menu-btn" onclick="selectMenu('comments')">댓글</button>
+      <button class="menu-btn selected" onclick="selectMenu('record', event)">전적</button>
+      <button class="menu-btn" onclick="selectMenu('lineup', event)">라인업</button>
+      <button class="menu-btn" onclick="selectMenu('comments', event)">댓글</button>
     </div>
     <div id="recordContent" class="menu-content" data-content="record">
       <div class="a-record">

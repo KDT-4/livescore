@@ -3,10 +3,10 @@ const favoriteIcon = document.querySelector('.favorite-icon');
 favoriteIcon.addEventListener('click', function() {
     const starIcon = favoriteIcon.querySelector('.star-icon');
 
-    if (starIcon.src.includes('src/star.png')) {
+    if (starIcon.src.includes('src/star1.png')) {
         starIcon.src = 'src/star2.png';
     } else {
-        starIcon.src = 'src/star.png';
+        starIcon.src = 'src/star1.png';
     }
 });
 
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function selectMenu(menu) {
+function selectMenu(menu, event) {
   var menuButtons = document.querySelectorAll('.menu-btn');
 
   menuButtons.forEach(function(btn) {
@@ -36,8 +36,12 @@ function selectMenu(menu) {
 
   if (menu === 'comments') {
     document.getElementById('typingArea').style.display = 'flex';
+    document.querySelector('.second-container').style.height = '379px';
+    document.querySelector('.menu-content').style.maxHeight = '290px';
 } else {
     document.getElementById('typingArea').style.display = 'none';
+    document.querySelector('.second-container').style.height = '465px';
+    document.querySelector('.menu-content').style.maxHeight = '370px';
 }
 }
 
@@ -45,13 +49,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const commentInput = document.getElementById('commentInput');
     const sendButton = document.getElementById('sendButton');
     const commentsContainer = document.getElementById('commentContainer');
-
+    
     sendButton.addEventListener('click', function() {
         sendComment();
     });
 
     commentInput.addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
+            event.preventDefault();
             sendComment();
         }
     });
