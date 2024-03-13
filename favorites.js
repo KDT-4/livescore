@@ -10,39 +10,65 @@ document.addEventListener('DOMContentLoaded', function() {
 //
 
 
+
+////////// local storage에서 내림차순으로 데이터를 받아와서 추가함.
 window.onload = function() {
   loadElementFromLocalStorage();
 };
-
+//
 function loadElementFromLocalStorage() {
-  var savedHTML = localStorage.getItem('savedElement');
-  if (savedHTML) {
-    var container = document.createElement('div');
-    container.innerHTML = savedHTML;
-    
-    var livescoreSection = document.querySelector('.livescore');
-    if (livescoreSection) {
-      // 저장된 요소를 livescore 섹션 안에 추가
-      livescoreSection.appendChild(container.firstElementChild);
+  var localStorageLength = localStorage.length;
+  var elements = [];
+  // 모든 키에 대해 loop해서 값을 가져와서 elements 배열에 추가
+  for (var i = 0; i < localStorageLength; i++) {
+    var key = localStorage.key(i);
+    var savedHTML = localStorage.getItem(key);
+
+    if (savedHTML) {
+      var container = document.createElement('div');
+      container.innerHTML = savedHTML;
+      elements.push(container.firstElementChild);
     }
   }
+  // match_date를 기준으로 elements 배열을 내림차순으로 정렬
+  elements.sort(function(a, b) {
+    var dateA = getDateFromString(a.querySelector('.match_date').textContent);
+    var dateB = getDateFromString(b.querySelector('.match_date').textContent);
+    return dateB - dateA;
+  });
+  var livescoreSection = document.querySelector('.livescore');
+  if (livescoreSection) {
+    // 정렬된 요소들을 livescore 섹션 안에 추가
+    elements.forEach(function(element) {
+      livescoreSection.appendChild(element);
+    });
+  }
 }
+function getDateFromString(dateString) {
+  // (ex) "03-14" 형식의 문자열을 Date 객체로 변환하여 반환
+  var parts = dateString.split('-');
+  var month = parseInt(parts[0], 10) - 1; // JavaScript에서 월은 0부터 시작하므로 1을 빼줌.
+  var day = parseInt(parts[1], 10);
+  return new Date(new Date().getFullYear(), month, day);
+}
+//////////
 
-// 클릭시 즐겨찾기(별) 이미지 바꾸기 % 로컬스토리지에 저장
+
+
+// 클릭시 즐겨찾기(별) 이미지 바꾸기 및 로컬스토리지에 저장
 function toggleFavorite(imgElement) {
   var value = imgElement.getAttribute('value');
-  var elementId = imgElement.parentElement.id; // livescore-element의 id 가져오기
+  var wrapperElement = imgElement.closest('.livescore-elemenet-wrapper');
+  var elementId = wrapperElement.getAttribute('id'); // livescore-element-wrapper의 id 가져오기
+
   if (value === 'Unfavorites') {
     // 즐겨찾기 추가
     imgElement.src = './src/star.png';
     imgElement.setAttribute('value', 'favorites');
     localStorage.setItem(elementId, 'favorites'); // 로컬 스토리지에 저장
     // 해당 livescore-element를 같이 저장
-    var element = document.getElementById(elementId);
-    if (element) {
-      var htmlString = element.outerHTML;
-      localStorage.setItem('savedElement', htmlString);
-    }
+    var htmlString = wrapperElement.outerHTML;
+    localStorage.setItem('savedElement', htmlString);
   } else {
     // 즐겨찾기 취소
     imgElement.src = './src/non-star.png';
@@ -53,3 +79,26 @@ function toggleFavorite(imgElement) {
   }
 }
 
+
+
+
+// .match_data 중복 제거
+function hideDuplicateMatchDates() {
+  const matchDates = document.querySelectorAll('.match_date');
+  const uniqueMatchDates = new Set();
+
+  matchDates.forEach(matchDate => {
+    const dateText = matchDate.textContent.trim();
+
+    if (uniqueMatchDates.has(dateText)) {
+      matchDate.classList.add('hidden');
+    } else {
+      uniqueMatchDates.add(dateText);
+    }
+  });
+}
+//
+//
+document.addEventListener("DOMContentLoaded", function() {
+  hideDuplicateMatchDates();
+});
