@@ -1,21 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
     const backButton = document.getElementById('backButton');
 
+    const chatInput = document.getElementById('chatInput');
+    const sendButton = document.getElementById('sendButton');
+    const chatsContainer = document.getElementById('chatContainer');
+
     backButton.addEventListener('click', function() {
       window.location.href = 'livescore.html';
     });
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-  const chatInput = document.getElementById('chatInput');
-  const sendButton = document.getElementById('sendButton');
-  const chatsContainer = document.getElementById('chatContainer');
-
-  sendButton.addEventListener('click', function() {
+    sendButton.addEventListener('click', function() {
       sendChat();
-  });
+    });
 
-  chatInput.addEventListener('keypress', function(event) {
+    chatInput.addEventListener('keypress', function(event) {
       if (event.key === 'Enter') {
         event.preventDefault();
         sendChat();
@@ -23,7 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function sendChat() {
-      const chatText = chatInput.value.replace(/\n/g, '').trim();
+    let chatText = chatInput.value.trim();
+
+    if (chatText.length > 300) {
+      chatText = chatText.substring(0, 300);
+    }
 
       if (chatText !== '') {
           chatInput.value = '';

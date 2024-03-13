@@ -207,6 +207,7 @@
     text-align: left;
     margin-left: 10px;
     overflow-wrap: break-word;
+    max-width: 70%;
 }
 
 .comment-timestamp {

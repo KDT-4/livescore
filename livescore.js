@@ -10,14 +10,6 @@ favoriteIcon.addEventListener('click', function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const livestreamBtn = document.getElementById('livestreamBtn');
-
-    livestreamBtn.addEventListener('click', function() {
-        window.location.href = 'livestream.html';
-    });
-});
-
 function selectMenu(menu, event) {
   var menuButtons = document.querySelectorAll('.menu-btn');
 
@@ -46,10 +38,16 @@ function selectMenu(menu, event) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    const livestreamBtn = document.getElementById('livestreamBtn');
+
     const commentInput = document.getElementById('commentInput');
     const sendButton = document.getElementById('sendButton');
     const commentsContainer = document.getElementById('commentContainer');
-    
+
+    livestreamBtn.addEventListener('click', function() {
+        window.location.href = 'livestream.html';
+    });
+
     sendButton.addEventListener('click', function() {
         sendComment();
     });
@@ -62,7 +60,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function sendComment() {
-        const commentText = commentInput.value.replace(/\n/g, '').trim();
+        let commentText = commentInput.value.trim();
+        
+        if (commentText.length > 300) {
+            commentText = commentText.substring(0, 300);
+        }
 
         if (commentText !== '') {
             commentInput.value = '';
