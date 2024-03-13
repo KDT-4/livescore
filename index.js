@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var bracketLink = document.getElementById('nav-item3');
   var settingsLink = document.getElementById('nav-item4');
   var searchLink = document.getElementById('searchButton');
+  var livescoreLink = document.getElementById('livescore-elemenet4');
 
   // 클릭 이벤트 핸들러를 추가
   favoritesLink.addEventListener('click', function(event) {
@@ -112,6 +113,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   searchLink.addEventListener('click', function(event) {
     window.location.href = 'search.html';
+  });
+
+  livescoreLink.addEventListener('click', function(event) {
+    window.location.href = 'livescore.html';
   });
 });
 //
