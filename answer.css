@@ -12,9 +12,10 @@ h2{
   margin-left:20px;
 }
 
-.container {
+.container, .container1, .container2, .container3, .container4, .container5 {
   display: flex;
   align-items: center;
+
 }
 
 .function, .data, .chat, .wifi, .ring, .feedback {
