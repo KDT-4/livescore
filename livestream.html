@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SU-SPORTS</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./livestream.css">
+  <script defer src="./livestream.js"></script>
+</head>
+<body>
+  <header class="header">
+    <img src="src/icon_back.png" class="icon-back" alt="Back Icon" id="backButton"> 
+    <h1>실시간 경기</h1>
+  </header>
+  
+  <div class="container">
+    <button class="play-button">
+      <img src="src/play.png" alt="Play Icon">
+  </button>
+  </div>
+  <div class="second-container">
+    <div class="top">
+      <div class="chat-title">실시간 채팅</div>
+    </div>
+    <div id="chatsContent" class="menu-content" data-content="chats">
+      <div id="chatContainer" class="chats-wrapper">
+      </div>
+    </div>
+  </div>
+
+  <div class="typing-area" id="typingArea">
+    <img src="src/profile.png" alt="Profile Icon" class="profile-icon">
+    <textarea id="chatInput" placeholder="채팅을 입력해 주세요 (최대 300자)"></textarea>
+    <img src="src/send.png" alt="Send Icon" class="send-icon" id="sendButton">
+  </div>
+
+  <nav class="nav">
+    <a href="#" class="nav-item">
+      <img src="src/home.png" class="nav-icon" alt="home">
+      Home
+    </a>
+    <a href="#" class="nav-item">
+      <img src="src/favorites.png" class="nav-icon" alt="favorites">
+      Favorites
+    </a>
+    <a href="#" class="nav-item">
+      <img src="src/bracket.png" class="nav-icon" alt="bracket">
+      Bracket
+    </a>
+    <a href="#" class="nav-item">
+      <img src="src/settings.png" class="nav-icon" alt="settings">
+      Settings
+    </a>
+  </nav>
+</body>
+</html>
