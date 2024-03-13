@@ -1,3 +1,5 @@
+console.log(comment);
+
 const favoriteIcon = document.querySelector('.favorite-icon');
 
 favoriteIcon.addEventListener('click', function() {
@@ -59,6 +61,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    window.onload = loadComment;
+
+    function loadComment() {
+        const now = new Date();
+        comment.forEach(comment => {
+            const newComment = document.createElement('div');
+            newComment.classList.add('comment');
+    
+            const commentIcon = document.createElement('img');
+            commentIcon.src = 'src/profile.png';
+            commentIcon.classList.add('comment-icon');
+    
+            const commentContent = document.createElement('div');
+            commentContent.classList.add('comment-text');
+            commentContent.textContent = comment.content;
+    
+            const commentTimestamp = document.createElement('div');
+            commentTimestamp.classList.add('comment-timestamp');
+            commentTimestamp.textContent = getFormattedTimestamp(new Date(comment.time), now);
+    
+            newComment.appendChild(commentIcon);
+            newComment.appendChild(commentContent);
+            newComment.appendChild(commentTimestamp);
+    
+            commentsContainer.appendChild(newComment);
+        });
+
+        commentsContainer.scrollTop = commentsContainer.scrollHeight;
+    }
+
     function sendComment() {
         let commentText = commentInput.value.trim();
         
@@ -82,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const commentTimestamp = document.createElement('div');
             commentTimestamp.classList.add('comment-timestamp');
-            commentTimestamp.textContent = getCurrentTimestamp();
+            commentTimestamp.textContent = getFormattedTimestamp(new Date(), new Date());
 
             newComment.appendChild(commentIcon);
             newComment.appendChild(commentContent);
@@ -94,8 +126,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function getCurrentTimestamp() {
-        const now = new Date();
-        return now.toLocaleString();
+    function getFormattedTimestamp(commentTime, currentTime) {
+        const diffMilliseconds = currentTime - commentTime;
+        const diffSeconds = Math.floor(diffMilliseconds / 1000);
+        const diffMinutes = Math.floor(diffSeconds / 60);
+        const diffHours = Math.floor(diffMinutes / 60);
+        const diffDays = Math.floor(diffHours / 24);
+        const diffWeeks = Math.floor(diffDays / 7);
+        const diffYears = Math.floor(diffDays / 365);
+    
+        if (diffSeconds < 60) {
+            return "방금";
+        } else if (diffMinutes < 60) {
+            return `${diffMinutes}분 전`;
+        } else if (diffHours < 24) {
+            return `${diffHours}시간 전`;
+        } else if (diffDays < 7) {
+            return `${diffDays}일 전`;
+        } else if (diffWeeks < 52) {
+            return `${diffWeeks}주 전`;
+        } else {
+            return `${diffYears}년 전`;
+        }
     }
 });
