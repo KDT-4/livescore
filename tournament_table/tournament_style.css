@@ -310,23 +310,37 @@ h1 {
 
 /*종목 선택 버튼*/
 #score_menu{
-  /*width:100%;*/ 
+  display: flex;
+  /* list-style: none; */
+  width:100%;
   height:120px;
+  padding: 0;
+  margin: 0;
+  justify-content: space-between;
   overflow:hidden; 
   margin-bottom:0px;
 }
 #score_menu ul{
-  width:100%; 
-  height:120px;
-  overflow:hidden; 
+  display: flex;
+  width: 100%;
+  /* height:120px;
+  overflow:hidden;  */
+  margin: 0 auto;
+  padding: 0;
+  justify-content: space-between;
   background-color: #e1e1e1; 
   background-color:rgba(225,225,225,0.9);
 }
 #score_menu ul li{
-  float:left;
-  width:100px;
-  height:65px; 
-  margin-left:-1px; 
+  display: flex;
+  flex-grow: 1;
+  max-width: 5%;
+  /* text-align: center; */
+  /* float:left; */
+  justify-content: center;
+  /* width:100px;
+  height:65px;  */
+  /* margin-left:-1px;  */
   border-bottom:1px solid #e4e9f2;
 }
 #score_menu ul li a{
@@ -389,5 +403,16 @@ h1 {
 }
 #score_menu ul li.volley a{
   background-position:-198px 0px;
+}
+
+.flink {
+  display: block;
+  width: 100%;
+}
+
+.flink img {
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
 }
 
