@@ -1,9 +1,7 @@
-console.log(comment);
-
-const favoriteIcon = document.querySelector('.favorite-icon');
+var favoriteIcon = document.querySelector('.favorite-icon');
 
 favoriteIcon.addEventListener('click', function() {
-    const starIcon = favoriteIcon.querySelector('.star-icon');
+    var starIcon = favoriteIcon.querySelector('.star-icon');
 
     if (starIcon.src.includes('src/star1.png')) {
         starIcon.src = 'src/star2.png';
@@ -30,7 +28,7 @@ function selectMenu(menu, event) {
 
   if (menu === 'comments') {
     document.getElementById('typingArea').style.display = 'flex';
-    document.querySelector('.second-container').style.height = '379px';
+    document.querySelector('.second-container').style.height = '377px';
     document.querySelector('.menu-content').style.maxHeight = '290px';
 } else {
     document.getElementById('typingArea').style.display = 'none';
@@ -40,11 +38,33 @@ function selectMenu(menu, event) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const livestreamBtn = document.getElementById('livestreamBtn');
+    var livestreamBtn = document.getElementById('livestreamBtn');
 
-    const commentInput = document.getElementById('commentInput');
-    const sendButton = document.getElementById('sendButton');
-    const commentsContainer = document.getElementById('commentContainer');
+    var commentInput = document.getElementById('commentInput');
+    var sendButton = document.getElementById('sendButton');
+    var commentsContainer = document.getElementById('commentContainer');
+
+    var homeLink = document.getElementById('nav-item1');
+    var favoritesLink = document.getElementById('nav-item2');
+    var bracketLink = document.getElementById('nav-item3');
+    var settingsLink = document.getElementById('nav-item4');
+    var backLink = document.getElementById('backButton');
+    
+    homeLink.addEventListener('click', function(event) {
+        window.location.href = 'index.html';
+    });
+
+    favoritesLink.addEventListener('click', function(event) {
+        window.location.href = 'favorites.html';
+    });
+    
+    bracketLink.addEventListener('click', function(event) {
+        window.location.href = 'league_table/league_index.html';
+    });
+    
+    settingsLink.addEventListener('click', function(event) {
+        window.location.href = 'theme.html';
+    });
 
     livestreamBtn.addEventListener('click', function() {
         window.location.href = 'livestream.html';
@@ -52,6 +72,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     sendButton.addEventListener('click', function() {
         sendComment();
+    });
+
+    backLink.addEventListener('click', function() {
+        window.history.back();
     });
 
     commentInput.addEventListener('keypress', function(event) {
@@ -64,20 +88,20 @@ document.addEventListener('DOMContentLoaded', function() {
     window.onload = loadComment;
 
     function loadComment() {
-        const now = new Date();
+        var now = new Date();
         comment.forEach(comment => {
-            const newComment = document.createElement('div');
+            var newComment = document.createElement('div');
             newComment.classList.add('comment');
     
-            const commentIcon = document.createElement('img');
+            var commentIcon = document.createElement('img');
             commentIcon.src = 'src/profile.png';
             commentIcon.classList.add('comment-icon');
     
-            const commentContent = document.createElement('div');
+            var commentContent = document.createElement('div');
             commentContent.classList.add('comment-text');
             commentContent.textContent = comment.content;
     
-            const commentTimestamp = document.createElement('div');
+            var commentTimestamp = document.createElement('div');
             commentTimestamp.classList.add('comment-timestamp');
             commentTimestamp.textContent = getFormattedTimestamp(new Date(comment.time), now);
     
@@ -101,18 +125,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (commentText !== '') {
             commentInput.value = '';
 
-            const newComment = document.createElement('div');
+            var newComment = document.createElement('div');
             newComment.classList.add('comment');
 
-            const commentIcon = document.createElement('img');
+            var commentIcon = document.createElement('img');
             commentIcon.src = 'src/profile.png';
             commentIcon.classList.add('comment-icon');
 
-            const commentContent = document.createElement('div');
+            var commentContent = document.createElement('div');
             commentContent.classList.add('comment-text');
             commentContent.textContent = commentText;
 
-            const commentTimestamp = document.createElement('div');
+            var commentTimestamp = document.createElement('div');
             commentTimestamp.classList.add('comment-timestamp');
             commentTimestamp.textContent = getFormattedTimestamp(new Date(), new Date());
 
@@ -127,13 +151,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function getFormattedTimestamp(commentTime, currentTime) {
-        const diffMilliseconds = currentTime - commentTime;
-        const diffSeconds = Math.floor(diffMilliseconds / 1000);
-        const diffMinutes = Math.floor(diffSeconds / 60);
-        const diffHours = Math.floor(diffMinutes / 60);
-        const diffDays = Math.floor(diffHours / 24);
-        const diffWeeks = Math.floor(diffDays / 7);
-        const diffYears = Math.floor(diffDays / 365);
+        var diffMilliseconds = currentTime - commentTime;
+        var diffSeconds = Math.floor(diffMilliseconds / 1000);
+        var diffMinutes = Math.floor(diffSeconds / 60);
+        var diffHours = Math.floor(diffMinutes / 60);
+        var diffDays = Math.floor(diffHours / 24);
+        var diffWeeks = Math.floor(diffDays / 7);
+        var diffYears = Math.floor(diffDays / 365);
     
         if (diffSeconds < 60) {
             return "방금";
