@@ -1,10 +1,21 @@
-// home.html로 이동
+// index.html로 이동
 document.addEventListener('DOMContentLoaded', function() {
 
-  var favoritesLink = document.getElementById('nav-item1');
+  var homeLink = document.getElementById('nav-item1');
+  var bracketLink = document.getElementById('nav-item3');
+  var settingsLink = document.getElementById('nav-item4');
 
-  favoritesLink.addEventListener('click', function(event) {
-    window.location.href = 'home.html';
+  // 클릭 이벤트 핸들러를 추가
+  homeLink.addEventListener('click', function(event) {
+    window.location.href = 'index.html';
+  });
+
+  bracketLink.addEventListener('click', function(event) {
+    window.location.href = 'league_table/league_index.html';
+  });
+
+  settingsLink.addEventListener('click', function(event) {
+    window.location.href = 'theme.html';
   });
 });
 //

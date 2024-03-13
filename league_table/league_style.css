@@ -1,3 +1,6 @@
+#nav-item3 .nav-icon {
+  filter: invert(70%) sepia(99%) saturate(5414%) hue-rotate(170deg) brightness(102%) contrast(97%) !important;
+}
 
 html{
     background-color:rgba(225,225,225,0.9);   

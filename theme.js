@@ -8,14 +8,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkMode = document.querySelector('.dark-mode');
     const boxes = document.querySelectorAll('.box'); // 모든 박스 선택
 
-    const homeLink = document.getElementById('home_link');
-    if (home_link) { // homeLink가 실제로 존재하는지 확인
-        homeLink.addEventListener('click', function(event) {
-            event.preventDefault(); // 기본 이벤트 방지
-            window.location.href = 'index.html'; // 홈 페이지로 이동
-        });
-    }
+    var homeLink = document.getElementById('nav-item1');
+    var favoritesLink = document.getElementById('nav-item2');
+    var bracketLink = document.getElementById('nav-item3');
+
+    var answerLink = document.getElementById('fq');
+    var directLink = document.getElementById('cu');
+    var termsLink = document.getElementById('terms');
+    
+    // 클릭 이벤트 핸들러를 추가
+    homeLink.addEventListener('click', function(event) {
+      window.location.href = 'index.html';
+    });
   
+    favoritesLink.addEventListener('click', function(event) {
+      window.location.href = 'favorites.html';
+    });
+  
+    bracketLink.addEventListener('click', function(event) {
+      window.location.href = 'league_table/league_index.html';
+    });
+
+    answerLink.addEventListener('click', function() {
+      window.location.href = 'answer.html';
+    });
+
+    directLink.addEventListener('click', function() {
+        window.location.href = 'direct.html';
+    });
+
+    termsLink.addEventListener('click', function() {
+      window.location.href = 'terms.html';
+    });
+    
     // 초기 글자 크기 설정
     const initialFontSize = 100; // 예: 100%
     body.style.fontSize = `${initialFontSize}%`;

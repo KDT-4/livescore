@@ -1,5 +1,5 @@
 .container {
-    height: 175px;
+    height: 181px;
     position: relative;
     background-color: #eff0ed;
     border-radius: 10px;
@@ -13,7 +13,7 @@
 }
 
 .second-container {
-    height: 379px;
+    height: 377px;
     position: relative;
     background-color: #eff0ed;
     border-radius: 10px;

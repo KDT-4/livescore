@@ -1,12 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const backButton = document.getElementById('backButton');
 
-    const chatInput = document.getElementById('chatInput');
-    const sendButton = document.getElementById('sendButton');
-    const chatsContainer = document.getElementById('chatContainer');
+    var chatInput = document.getElementById('chatInput');
+    var sendButton = document.getElementById('sendButton');
+    var chatsContainer = document.getElementById('chatContainer');
 
-    backButton.addEventListener('click', function() {
-      window.location.href = 'livescore.html';
+    var homeLink = document.getElementById('nav-item1');
+    var favoritesLink = document.getElementById('nav-item2');
+    var bracketLink = document.getElementById('nav-item3');
+    var settingsLink = document.getElementById('nav-item4');
+    var backLink = document.getElementById('backButton');
+    
+    homeLink.addEventListener('click', function(event) {
+        window.location.href = 'index.html';
+    });
+
+    favoritesLink.addEventListener('click', function(event) {
+        window.location.href = 'favorites.html';
+    });
+    
+    bracketLink.addEventListener('click', function(event) {
+        window.location.href = 'league_table/league_index.html';
+    });
+    
+    settingsLink.addEventListener('click', function(event) {
+        window.location.href = 'theme.html';
+    });
+
+    backLink.addEventListener('click', function() {
+        window.history.back();
     });
 
     sendButton.addEventListener('click', function() {
@@ -24,14 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadChat() {
           livechat.forEach(chat => {
-          const newChat = document.createElement('div');
+          var newChat = document.createElement('div');
           newChat.classList.add('chat');
   
-          const chatIcon = document.createElement('img');
+          var chatIcon = document.createElement('img');
           chatIcon.src = 'src/profile.png';
           chatIcon.classList.add('chat-icon');
   
-          const chatContent = document.createElement('div');
+          var chatContent = document.createElement('div');
           chatContent.classList.add('chat-text');
           chatContent.textContent = chat.content;
 
@@ -54,14 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (chatText !== '') {
             chatInput.value = '';
 
-            const newChat = document.createElement('div');
+            var newChat = document.createElement('div');
             newChat.classList.add('chat');
 
-            const chatIcon = document.createElement('img');
+            var chatIcon = document.createElement('img');
             chatIcon.src = 'src/profile.png';
             chatIcon.classList.add('chat-icon');
 
-            const chatContent = document.createElement('div');
+            var chatContent = document.createElement('div');
             chatContent.classList.add('chat-text');
             chatContent.textContent = chatText;
 

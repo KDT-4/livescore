@@ -4,85 +4,228 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SU-SPORTS</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./index.css">
+  <script defer src="index.js"></script>
+  <!-- <script defer src="data.js"></script> -->
 </head>
 <body>
+  <div id="body-wrapper">
 
   <header class="header">
-    <img src="src/icon_back.png" class="icon-back" alt="Back Icon"> 
     <h1>SU-SPORTS</h1>
-    <img src="src/search.png" class="icon-search" alt="Search Icon">
+    <img src="src/search.png" class="icon-search" alt="Search Icon" id="searchButton">
   </header>
 
- <p>test-------------------------------start</p>
- <p>test- 헤더와 navi 제대로 작동하는지 확인</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test</p>
- <p>test- 변경사항: styles.css</p>
- <p>test - body{} .header{} .nav{}</p>
- <p>test-------------------------------end</p>
+  <div class="home">
+    <section class="sports">
+      <img src="src/icon_soccer.png" class="icon-soccer" alt="Soccer Icon">
+      <img src="src/icon_basketball.png" class="icon-basketball" alt="Basketball Icon">
+      <img src="src/icon_dodgeball.png" class="icon-dodgeball" alt="Dodgeball Icon">
+      <img src="src/icon_kickball.png" class="icon-kickball" alt="Kickball Icon">
+      <img src="src/icon_athletics.png" class="icon-athletecs" alt="Athletecs Icon">
+      <!-- test -->
+      <img src="src/test.png" class="icon-test" alt="test Icon">
+      <img src="src/test.png" class="icon-test" alt="test Icon">
+      <img src="src/test.png" class="icon-test" alt="test Icon">
+    </section>
+      
+    <section class="calendar">
+      <input type="date" id="selectedDate">
+    </section>
+    
+    <section class="livescore">
+        <!-- 예정경기 -->
+        <div class="livescore-elemenet-wrapper"  id="livescore-elemenet11">
+          <div class="match_date">
+            03-16
+          </div>
+          <div  class="livescore-elemenet">
+              <img src="src/icon_soccer.png" class="icon-soccer sports-icon" alt="Soccer Icon">
+              <span class="team1_name">간호</span>
+              <span class="t1_score">null</span>
+              <span class="match_st">17:30</span>
+              <span class="t2_score">null</span>
+              <span class="team2_name">경영</span>
+              <img src="./src/non-star.png" class="star" value="Unfavorites" onclick="toggleFavorite(this)">
+          </div>
+        </div>
+
+        <div class="livescore-elemenet-wrapper" id="livescore-elemenet10">
+          <div class="match_date">
+            03-15
+          </div>
+          <div class="livescore-elemenet">
+            <img src="src/icon_basketball.png" class="icon-basketball sports-icon" alt="Basketball Icon">
+            <span class="team1_name">동생자</span>
+            <span class="t1_score">null</span>
+            <span class="match_st">15:00</span>
+            <span class="t2_score">null</span>
+            <span class="team2_name">물치</span>
+            <img src="./src/non-star.png" class="star" value="Unfavorites" onclick="toggleFavorite(this)">
+          </div>
+        </div>
+
+        <div class="livescore-elemenet-wrapper" id="livescore-elemenet9">
+          <div class="match_date">
+            03-14
+          </div>
+          <div class="livescore-elemenet">
+            <img src="src/icon_dodgeball.png" class="icon-dodgeball sports-icon" alt="Dodgeball Icon">
+            <span class="team1_name">생체</span>
+            <span class="t1_score">null</span>
+            <span class="match_st">12:00</span>
+            <span class="t2_score">null</span>
+            <span class="team2_name">신학</span>
+            <img src="./src/non-star.png" class="star" value="Unfavorites" onclick="toggleFavorite(this)">
+          </div>
+        </div>
+
+        <!-- 진행중경기 -->
+        <div class="livescore-elemenet-wrapper" id="livescore-elemenet8">
+          <div class="match_date">
+            03-13
+          </div>
+          <div class="livescore-elemenet">
+            <img src="src/icon_kickball.png" class="icon-kickball sports-icon" alt="Kickball Icon">
+              <span class="team1_name">아디</span>
+              <span class="t1_score">1</span>
+              <span class="match_st">17:30</span>
+              <span class="t2_score">0</span>
+              <span class="team2_name">약학</span>
+              <img src="./src/non-star.png" class="star" value="Unfavorites" onclick="toggleFavorite(this)">
+          </div>
+	      </div>
+
+        <div class="livescore-elemenet-wrapper" id="livescore-elemenet7">
+	        <div class="match_date">
+            03-13
+          </div>
+          <div class="livescore-elemenet">
+            <img src="src/icon_soccer.png" class="icon-soccer sports-icon" alt="Soccer Icon">
+              <span class="team1_name">영문</span>
+              <span class="t1_score">2</span>
+              <span class="match_st">17:00</span>
+              <span class="t2_score">3</span>
+              <span class="team2_name">유교</span>
+              <img src="./src/non-star.png" class="star" value="Unfavorites" onclick="toggleFavorite(this)">
+          </div>
+        </div>
+
+        <!-- 종료된경기 -->
+        <div class="livescore-elemenet-wrapper" id="livescore-elemenet6">
+          <div class="match_date">
+            03-12
+          </div>
+          <div class="livescore-elemenet">
+            <img src="src/icon_soccer.png" class="icon-soccer sports-icon" alt="Soccer Icon">
+            <span class="team1_name">인지융</span>
+            <span class="t1_score">1</span>
+            <span class="match_st">13:00</span>
+            <span class="t2_score">2</span>
+            <span class="team2_name">사복</span>
+            <img src="./src/non-star.png" class="star" value="Unfavorites" onclick="toggleFavorite(this)">
+          </div>
+        </div>
+
+        <div class="livescore-elemenet-wrapper" id="livescore-elemenet5">
+          <div class="match_date">
+            03-12
+          </div>
+          <div class="livescore-elemenet">
+            <img src="src/icon_kickball.png" class="icon-kickball sports-icon" alt="Kickball Icon">
+            <span class="team1_name">간호</span>
+            <span class="t1_score">3</span>
+            <span class="match_st">13:00</span>
+            <span class="t2_score">2</span>
+            <span class="team2_name">항공</span>
+            <img src="./src/non-star.png" class="star" value="Unfavorites" onclick="toggleFavorite(this)">
+          </div>
+        </div>
+
+        <div class="livescore-elemenet-wrapper" id="livescore-elemenet4">
+          <div class="match_date">
+            03-11
+          </div>
+          <div class="livescore-elemenet">
+            <img src="src/icon_soccer.png" class="icon-soccer sports-icon" alt="Soccer Icon">
+            <span class="team1_name">컴공</span>
+            <span class="t1_score">1</span>
+            <span class="match_st">15:00</span>
+            <span class="t2_score">0</span>
+            <span class="team2_name">아디</span>
+            <img src="./src/non-star.png" class="star" value="Unfavorites" onclick="toggleFavorite(this)">
+          </div>
+        </div>
+
+        <div class="livescore-elemenet-wrapper" id="livescore-elemenet3">
+          <div class="match_date">
+            03-11
+          </div>
+          <div class="livescore-elemenet">
+            <img src="src/icon_basketball.png" class="icon-basketball sports-icon" alt="Basketball Icon">
+            <span class="team1_name">동생자</span>
+            <span class="t1_score">2</span>
+            <span class="match_st">14:00</span>
+            <span class="t2_score">4</span>
+            <span class="team2_name">경영</span>
+            <img src="./src/non-star.png" class="star" value="Unfavorites" onclick="toggleFavorite(this)">
+          </div>
+        </div>
+
+        <div class="livescore-elemenet-wrapper" id="livescore-elemenet2">
+          <div class="match_date">
+            03-10
+          </div>
+          <div class="livescore-elemenet">
+            <img src="src/icon_soccer.png" class="icon-soccer sports-icon" alt="Soccer Icon">
+            <span class="team1_name">간호</span>
+            <span class="t1_score">3</span>
+            <span class="match_st">18:00</span>
+            <span class="t2_score">5</span>
+            <span class="team2_name">유교</span>
+            <img src="./src/non-star.png" class="star" value="Unfavorites" onclick="toggleFavorite(this)">
+          </div>
+        </div>
+
+        <div class="livescore-elemenet-wrapper" id="livescore-elemenet1">
+          <div class="match_date">
+            03-10
+          </div>
+          <div class="livescore-elemenet">
+            <img src="src/icon_soccer.png" class="icon-soccer sports-icon" alt="Soccer Icon">
+            <span class="team1_name">물치</span>
+            <span class="t1_score">4</span>
+            <span class="match_st">10:00</span>
+            <span class="t2_score">2</span>
+            <span class="team2_name">생체</span>
+            <img src="./src/non-star.png" class="star" value="Unfavorites" onclick="toggleFavorite(this)">
+          </div>
+        </div>
+
+
+      </section>
+      
+  </div>
 
   <nav class="nav">
-    <a href="#" class="nav-item">
-      <img src="src/home.png" class="nav-icon" alt="home">
-      Home
-    </a>
-    <a href="#" class="nav-item">
-      <img src="src/favorites.png" class="nav-icon" alt="favorites">
-      Favorites
-    </a>
-    <a href="#" class="nav-item">
-      <img src="src/bracket.png" class="nav-icon" alt="bracket">
-      Bracket
-    </a>
-    <a href="#" class="nav-item">
-      <img src="src/settings.png" class="nav-icon" alt="settings">
-      Settings
-    </a>
+      <a href="#" class="nav-item" id="nav-item1">
+        <img src="src/home.png" class="nav-icon" alt="home">
+        Home
+      </a>
+      <a href="#" class="nav-item" id="nav-item2">
+        <img src="src/favorites.png" class="nav-icon" alt="favorites">
+        Favorites
+      </a>
+      <a href="#" class="nav-item" id="nav-item3">
+        <img src="src/bracket.png" class="nav-icon" alt="bracket">
+        Bracket
+      </a>
+      <a href="#" class="nav-item" id="nav-item4">
+        <img src="src/settings.png" class="nav-icon" alt="settings">
+        Settings
+      </a>
   </nav>
 
+  </div>
 </body>
 </html>
