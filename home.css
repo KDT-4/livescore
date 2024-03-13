@@ -166,8 +166,10 @@
     border-radius: 10px;
     padding: 0px 50px;
     margin: 0;
+    background-color: #c8edff16;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
-  .livescore-elemenet  .sports-icon {
+  .livescore-elemenet .sports-icon {
     box-sizing: border-box;
     display: flex;
     overflow: auto;
@@ -176,20 +178,37 @@
     position: absolute;
     left: 5px;
   }
-  .livescore-elemenet  span {
+  .livescore-elemenet span {
     flex: 1;
     text-align: center; 
   }
-  .livescore-elemenet  span:nth-child(4) {
+  .livescore-elemenet span:nth-child(4) {
     flex: 0; /* 4번째로 가운데정렬 */ /* 경기시간 요소 기준으로 가운데정렬*/
   }
-  .livescore-elemenet  .star {
+  .livescore-elemenet .star {
     position: absolute;
     height: 20px;
     width: 20px;
     top: 5px;
     right: 5px;
   }
+  .livescore-elemenet .match_st {
+    font-style: italic;
+    font-size: 18px;
+    color: #333; /* */
+    background-color: #e8f2fa; /* */
+    padding: 5px 10px;
+    border-radius: 10px;
+  }
+ .match_date {
+  padding: 8px 12px;
+  border-radius: 5px;
+  background-color: #3498db; /* */
+  color: #fff; /* */
+  font-size: 16px; /*  */
+  font-weight: bold; /*  */
+}
+
 
   /* hidden필터링 */
   .hidden {
