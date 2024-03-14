@@ -1,6 +1,6 @@
-#nav-item4 .nav-icon {
+/* #nav-item4 .nav-icon {
   filter: invert(70%) sepia(99%) saturate(5414%) hue-rotate(170deg) brightness(102%) contrast(97%) !important;
-}
+} */
 
 .box {
     background-color: #e7e7e7e7;
@@ -235,7 +235,7 @@
 }
 
 .filter-white {
-  filter: invert(100%) !important;
+  filter: invert(100%);
 }
 
 /* #selectedDate {
