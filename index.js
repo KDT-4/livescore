@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // 클릭시 즐겨찾기(별) 이미지 바꾸기 및 로컬스토리지에 저장
 function toggleFavorite(imgElement) {
   var value = imgElement.getAttribute('value');
-  var wrapperElement = imgElement.closest('.livescore-elemenet-wrapper');
+  var wrapperElement = imgElement.closest('.livescore-elemenet-wrapper'); // 이부분에서 진짜 wrapper 클래스인지 판별
   var elementId = wrapperElement.getAttribute('id'); // livescore-element-wrapper의 id 가져오기
 
   if (value === 'Unfavorites') {
@@ -37,6 +37,7 @@ function toggleFavorite(imgElement) {
     // 로컬 스토리지에 저장
     if (elementId) {
       var htmlString = wrapperElement.outerHTML;
+      console.log(elementId, htmlString);
       localStorage.setItem(elementId, htmlString);
     }
   } else {
@@ -56,15 +57,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // HTML 내용 수정.
     if (htmlString) {
       var wrapperElement = document.getElementById(key);
-      wrapperElement.innerHTML = htmlString;
-
-      var imgElement = wrapperElement.querySelector('.star');
-      if (imgElement) {
-        var value = imgElement.getAttribute('value');
-        if (value === 'favorites') {
-          imgElement.src = './src/star_full.png';
-        } else {
-          imgElement.src = './src/star_empty.png';
+      if (wrapperElement) {
+        wrapperElement.innerHTML = htmlString;
+        var imgElement = wrapperElement.querySelector('.star');
+        if (imgElement) {
+          var value = imgElement.getAttribute('value');
+          if (value === 'favorites') {
+            imgElement.src = './src/star_full.png';
+          } else {
+            imgElement.src = './src/star_empty.png';
+          }
         }
       }
     }
@@ -159,16 +161,18 @@ dateInput.addEventListener('change', function() {   // 날짜 선택 enectListen
 
 // 스포츠필터링
 var sportsImages = document.querySelectorAll('.sports img');
-var selectedClass = null; // 초기값은 null
+var currentPage = null; // 초기값은 null
 
 Array.from(sportsImages).forEach(function(image) {
     image.addEventListener('click', function() {
-        if (selectedClass === image.className) {
-            selectedClass = null; // 이미 선택된 이미지를 클릭하면 selectedClass를 null로 설정
+        let selectedSports = image.classList[0];  // 하나의 클래스만 받아와야 함
+        if (currentPage && currentPage === selectedSports) {
+          currentPage = null;
+          filterMatches(null); // 필터링 함수 호출
         } else {
-            selectedClass = image.className; // 클릭된 이미지의 클래스를 selectedClass 변수에 저장
+          currentPage = selectedSports;
+          filterMatches(selectedSports); // 필터링 함수 호출
         }
-        filterMatches(); // 필터링 함수 호출
         addHiddenClassToMatchDate(); // match_date 태그 hidden 처리 함수 호출
         hideDuplicateMatchDates();  // 하단 match_date 중복제거 function
     });
@@ -178,18 +182,18 @@ Array.from(sportsImages).forEach(function(image) {
 
 
 // 경기 일정 필터링
-function filterMatches() {
+function filterMatches(selectedSports) {
     var allMatchElements = document.querySelectorAll('.livescore-elemenet');
 
     allMatchElements.forEach(function(matchElement) {
-        if (selectedClass) { // selectedClass가 null이 아니면 해당 클래스에 맞는 일정만 표시
-            if (matchElement.querySelector('.' + selectedClass)) {
-                matchElement.classList.remove('hidden');
-            } else {
-                matchElement.classList.add('hidden');
-            }
-        } else { // selectedClass가 null이면 모든 경기 일정을 표시
+        if (selectedSports === null) { // selectedSports
+          matchElement.classList.remove('hidden'); 
+        } else { // selectedSports null이면 모든 경기 일정을 표시
+          if (matchElement.querySelector('.' + selectedSports)) {
             matchElement.classList.remove('hidden');
+          } else {
+            matchElement.classList.add('hidden');
+          }  
         }
     });
 }

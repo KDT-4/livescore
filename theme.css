@@ -233,3 +233,7 @@
   background-color: #333;
   color: #fff;
 }
+
+.filter-white {
+  filter: invert(100%);
+}
