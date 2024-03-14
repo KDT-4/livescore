@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     var answerLink = document.getElementById('fq');
     var directLink = document.getElementById('cu');
     var termsLink = document.getElementById('terms');
+
+    const sports_Icons = document.querySelectorAll(".sports img");
+    applyPreviousSettings();
     
     // 클릭 이벤트 핸들러를 추가
     homeLink.addEventListener('click', function(event) {
@@ -55,6 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
       elementsToResize.forEach(element => {
         element.style.fontSize = `${fontSize}%`;
       });
+      localStorage.setItem('fontSize', fontSize); // 글자 크기 설정 저장
+      updateFontSize(fontSize);
     });
   
     // 라이트 모드 버튼 클릭 이벤트
@@ -66,6 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
     darkMode.style.borderColor = 'transparent'; // 다크 모드 컨테이너 테두리 제거
     lightModeButton.style.backgroundColor = '#526D82'; // 라이트 모드 버튼 채우기
     darkModeButton.style.backgroundColor = 'transparent'; // 다크 모드 버튼 배경 제거
+    // sportsIcons.forEach(function(icon) {
+    //   // 모든 아이콘의 필터 효과 초기화
+    // icon.style.filter = "none";
+    // });
+    localStorage.setItem('theme', 'light'); // 테마 설정 저장
+    updateTheme('light');
   });
 
   // 다크 모드 버튼 클릭 이벤트
@@ -77,6 +88,47 @@ document.addEventListener('DOMContentLoaded', () => {
     lightMode.style.borderColor = 'transparent'; // 라이트 모드 컨테이너 테두리 제거
     darkModeButton.style.backgroundColor = '#526D82'; // 다크 모드 버튼 채우기
     lightModeButton.style.backgroundColor = 'transparent'; // 라이트 모드 버튼 배경 제거
-  });
-  });
+    // sportsIcons.forEach(function(icon) {
+    //   // 모든 아이콘에 흰색으로 보이는 필터 효과 적용
+    // icon.style.filter = "invert(100%)";
+    // });
+    localStorage.setItem('theme', 'dark'); // 테마 설정 저장
+    updateTheme('dark');
+    });
+  // 다른 페이지에 설정 적용
+  function applyPreviousSettings() {
+    // 글자 크기 설정 불러오기 및 적용
+    const savedFontSize = localStorage.getItem('fontSize');
+    if (savedFontSize) {
+      updateFontSize(savedFontSize);
+    }
   
+    // 테마 설정 불러오기 및 적용
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      updateTheme(savedTheme);
+    }
+  }
+  
+  function updateFontSize(fontSize) {
+    document.body.style.fontSize = `${fontSize}%`;
+    document.querySelectorAll('.slider-label, .screen-styles, .service-center, .use-terms').forEach(element => {
+    element.style.fontSize = `${fontSize}%`;
+    });
+  }
+  
+  function updateTheme(theme) {
+    if (theme === 'dark') {
+      // 다크 모드 적용 로직
+      body.classList.add('dark-mode-active');
+      body.style.backgroundColor = 'black';
+      body.style.color = 'white';
+      
+    } else {
+      // 라이트 모드 적용 로직
+      body.classList.remove('dark-mode-active');
+      body.style.backgroundColor = 'white';
+      body.style.color = 'black';
+    }
+  }
+  });

@@ -68,6 +68,7 @@
   }
   /* sports */
   .home > .sports {
+    justify-content: space-between;
     box-sizing: border-box;
     display: flex;
     overflow: auto;
