@@ -93,21 +93,26 @@ darkModeButton?.addEventListener('click', () => {
 function applyPreviousSettings() {
   // 글자 크기 설정 불러오기 및 적용
   const savedFontSize = localStorage.getItem('fontSize');
+  console.log("Saved Font Size:", savedFontSize); // 진단을 위한 로그
   if (savedFontSize) {
     updateFontSize(savedFontSize);
+  } else {
+    updateFontSize("100");
   }
 
   // 테마 설정 불러오기 및 적용
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) {
     updateTheme(savedTheme);
+  } else {
+    updateTheme("light");
   }
 }
 
 function updateFontSize(fontSize) {
   document.body.style.fontSize = `${fontSize}%`;
-  document.querySelectorAll('.slider-label, .screen-styles, .service-center, .use-terms').forEach(element => {
-  element.style.fontSize = `${fontSize}%`;
+  document.querySelectorAll('*').forEach(element => {
+    element.style.fontSize = `${fontSize}%`;
   });
 }
 
