@@ -235,5 +235,16 @@
 }
 
 .filter-white {
-  filter: invert(100%);
+  filter: invert(100%) !important;
+}
+
+/* #selectedDate {
+  color: #fff;
+} */
+
+/* 다크 모드용 스타일 */
+.dark-mode input[type="date"] {
+  background: url(src/icon_calendar_dark.png) no-repeat right 30px center / 20px auto; /* 다크 모드용 아이콘 */
+  color: white; /* 다크 모드용 텍스트 색상 */
+  padding-right: 40px; /* 아이콘과 필드 오른쪽 경계 사이의 간격 조정 */
 }

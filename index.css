@@ -128,11 +128,12 @@
     width: 150px;
     height: 48px;
     padding: 0 25px 0 16px;
-    font-size: 22px;
+    padding-right: 20px; /* 아이콘과 필드 오른쪽 경계 사이의 간격 조정 */
+    font-size: 18px;
     /* border: 1px solid #E1E1E1; none으로 변경할것 */
     border: none;
     border-radius: 12px;
-    background: url(src/icon_calendar.png) no-repeat right 30px center / 20px auto;
+    background: url(src/icons8-calendar-48.png) no-repeat right 30px center / 20px auto;
   }
   input[type="date"]::-webkit-clear-button,
   input[type="date"]::-webkit-inner-spin-button { display: none;}
