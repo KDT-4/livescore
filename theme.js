@@ -47,18 +47,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   // 초기 글자 크기 설정
-  const initialFontSize = 100; // 예: 100%
-  body.style.fontSize = `${initialFontSize}%`;
+  const initialFontSize = 17; // 예: 100%
+  body.style.fontSize = `${initialFontSize}px`;
   elementsToResize.forEach(element => {
-    element.style.fontSize = `${initialFontSize}%`;
+    element.style.fontSize = `${initialFontSize}px`;
   });
 
   // 글자 크기 조절
   slider?.addEventListener('input', () => {
     const fontSize = slider.value;
-    body.style.fontSize = `${fontSize}%`;
+    body.style.fontSize = `${fontSize}px`;
     elementsToResize.forEach(element => {
-      element.style.fontSize = `${fontSize}%`;
+      element.style.fontSize = `${fontSize}px`;
     });
     localStorage.setItem('fontSize', fontSize); // 글자 크기 설정 저장
     updateFontSize(fontSize);
@@ -110,9 +110,9 @@ function applyPreviousSettings() {
 }
 
 function updateFontSize(fontSize) {
-  document.body.style.fontSize = `${fontSize}%`;
+  document.body.style.fontSize = `${fontSize}px`;
   document.querySelectorAll('*').forEach(element => {
-    element.style.fontSize = `${fontSize}%`;
+    element.style.fontSize = `${fontSize}px`;
   });
 }
 
@@ -142,4 +142,16 @@ function updateTheme(theme) {
     });
   }
 }
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  // 현재 페이지의 URL을 확인하여 "theme.html"인 경우에만 스타일을 적용
+  if (window.location.pathname.includes("theme.html")) {
+      // "#nav-item4 .nav-icon" 요소를 선택하여 필터 스타일을 적용
+      var navIcon = document.querySelector("#nav-item4 .nav-icon");
+      if (navIcon) {
+          navIcon.style.filter = "invert(70%) sepia(99%) saturate(5414%) hue-rotate(170deg) brightness(102%) contrast(97%)";
+      }
+  }
 });
