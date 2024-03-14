@@ -21,27 +21,27 @@ document.addEventListener('DOMContentLoaded', () => {
     applyPreviousSettings();
     
     // 클릭 이벤트 핸들러를 추가
-    homeLink.addEventListener('click', function(event) {
+    homeLink?.addEventListener('click', function(event) {
       window.location.href = 'index.html';
     });
   
-    favoritesLink.addEventListener('click', function(event) {
+    favoritesLink?.addEventListener('click', function(event) {
       window.location.href = 'favorites.html';
     });
   
-    bracketLink.addEventListener('click', function(event) {
+    bracketLink?.addEventListener('click', function(event) {
       window.location.href = 'league_table/league_index.html';
     });
 
-    answerLink.addEventListener('click', function() {
+    answerLink?.addEventListener('click', function() {
       window.location.href = 'answer.html';
     });
 
-    directLink.addEventListener('click', function() {
+    directLink?.addEventListener('click', function() {
         window.location.href = 'direct.html';
     });
 
-    termsLink.addEventListener('click', function() {
+    termsLink?.addEventListener('click', function() {
       window.location.href = 'terms.html';
     });
     
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 글자 크기 조절
-    slider.addEventListener('input', () => {
+    slider?.addEventListener('input', () => {
       const fontSize = slider.value;
       body.style.fontSize = `${fontSize}%`;
       elementsToResize.forEach(element => {
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
     // 라이트 모드 버튼 클릭 이벤트
-  lightModeButton.addEventListener('click', () => {
+  lightModeButton?.addEventListener('click', () => {
     body.classList.remove('dark-mode-active'); // 다크 모드 클래스 제거
     body.style.backgroundColor = 'white'; // 배경을 흰색으로
     body.style.color = 'black'; // 텍스트 색상을 검정색으로
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 다크 모드 버튼 클릭 이벤트
-  darkModeButton.addEventListener('click', () => {
+  darkModeButton?.addEventListener('click', () => {
     body.classList.add('dark-mode-active'); // 다크 모드 클래스 추가
     body.style.backgroundColor = 'black'; // 배경을 검정색으로
     body.style.color = 'white'; // 텍스트 색상을 흰색으로

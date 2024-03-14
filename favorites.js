@@ -38,20 +38,25 @@ function loadElementFromLocalStorage() {
     if (savedHTML) {
       var container = document.createElement('div');
       container.innerHTML = savedHTML;
+      console.log(container);
+      // console.log(container.firstElementChild);
       elements.push(container.firstElementChild);
     }
   }
+  console.log(elements);
   // match_date를 기준으로 elements 배열을 내림차순으로 정렬
-  elements.sort(function(a, b) {
-    var dateA = getDateFromString(a.querySelector('.match_date').textContent);
-    var dateB = getDateFromString(b.querySelector('.match_date').textContent);
-    return dateB - dateA;
-  });
+  // elements.sort(function(a, b) {
+  //   var dateA = getDateFromString(a.querySelector('.match_date').textContent);
+  //   var dateB = getDateFromString(b.querySelector('.match_date').textContent);
+  //   return dateB - dateA;
+  // });
   var livescoreSection = document.querySelector('.livescore');
   if (livescoreSection) {
     // 정렬된 요소들을 livescore 섹션 안에 추가
     elements.forEach(function(element) {
-      livescoreSection.appendChild(element);
+      if (element) {
+        livescoreSection.appendChild(element);
+      }
     });
   }
 }
