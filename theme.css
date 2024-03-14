@@ -195,3 +195,41 @@
   background-color: #333; /* 짙은 회색으로 변경 */
   color: #fff; /* 글자색 흰색으로 변경 */
 }
+
+.dark-mode-active .livescore {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode-active .match_date {
+  background-color: rgb(20, 20, 40);
+  color: #fff;
+}
+
+.dark-mode-active .wpos {
+  background-color: rgb(65, 65, 92);
+  color: #fff;
+}
+.dark-mode-active .pos {
+  background-color: rgb(65, 65, 92);
+  color: #fff;
+}
+.dark-mode-active td {
+  background-color: rgb(65, 65, 92);
+  color: #fff;
+}
+
+.dark-mode-active .container {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode-active .second-container {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode-active .sports {
+  background-color: #333;
+  color: #fff;
+}
