@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     var directLink = document.getElementById('cu');
     var termsLink = document.getElementById('terms');
 
-    const sports_Icons = document.querySelectorAll(".sports img");
+    // const sportsIcons = document.querySelectorAll('.sports img');
+
     applyPreviousSettings();
     
     // 클릭 이벤트 핸들러를 추가
@@ -71,10 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     darkMode.style.borderColor = 'transparent'; // 다크 모드 컨테이너 테두리 제거
     lightModeButton.style.backgroundColor = '#526D82'; // 라이트 모드 버튼 채우기
     darkModeButton.style.backgroundColor = 'transparent'; // 다크 모드 버튼 배경 제거
-    // sportsIcons.forEach(function(icon) {
-    //   // 모든 아이콘의 필터 효과 초기화
-    // icon.style.filter = "none";
-    // });
     localStorage.setItem('theme', 'light'); // 테마 설정 저장
     updateTheme('light');
   });
@@ -88,10 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     lightMode.style.borderColor = 'transparent'; // 라이트 모드 컨테이너 테두리 제거
     darkModeButton.style.backgroundColor = '#526D82'; // 다크 모드 버튼 채우기
     lightModeButton.style.backgroundColor = 'transparent'; // 라이트 모드 버튼 배경 제거
-    // sportsIcons.forEach(function(icon) {
-    //   // 모든 아이콘에 흰색으로 보이는 필터 효과 적용
-    // icon.style.filter = "invert(100%)";
-    // });
     localStorage.setItem('theme', 'dark'); // 테마 설정 저장
     updateTheme('dark');
     });
@@ -123,12 +116,20 @@ document.addEventListener('DOMContentLoaded', () => {
       body.classList.add('dark-mode-active');
       body.style.backgroundColor = 'black';
       body.style.color = 'white';
+
+      document.querySelectorAll('.icon-soccer, .icon-basketball, .icon-dodgeball, .icon-kickball, .icon-athletecs, .icon-test').forEach(icon => {
+        icon.classList.add('filter-white');
+      });
       
     } else {
       // 라이트 모드 적용 로직
       body.classList.remove('dark-mode-active');
       body.style.backgroundColor = 'white';
       body.style.color = 'black';
+
+      document.querySelectorAll('.icon-soccer, .icon-basketball, .icon-dodgeball, .icon-kickball, .icon-athletecs, .icon-test').forEach(icon => {
+        icon.classList.remove('filter-white');
+      });
     }
   }
   });
