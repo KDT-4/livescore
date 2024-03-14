@@ -3,24 +3,24 @@ console.log("test")
 
 
 
-// 클릭 시 이미지 filter style 적용. 스포츠 필터기능의 selectedClass 의 값으로 판단함
-document.addEventListener("DOMContentLoaded", function() {
-  const sportsIcons = document.querySelectorAll(".sports img");
+// // 클릭 시 이미지 filter style 적용. 스포츠 필터기능의 selectedClass 의 값으로 판단함
+// document.addEventListener("DOMContentLoaded", function() {
+//   const sportsIcons = document.querySelectorAll(".sports img");
 
-  sportsIcons.forEach(function(icon) {
-      icon.addEventListener("click", function() {
-          // 모든 아이콘의 필터 효과 초기화
-          sportsIcons.forEach(function(icon) {
-              icon.style.filter = "none";
-          });
+//   sportsIcons.forEach(function(icon) {
+//       icon.addEventListener("click", function() {
+//           // 모든 아이콘의 필터 효과 초기화
+//           sportsIcons.forEach(function(icon) {
+//               icon.style.filter = "none";
+//           });
 
-          // 선택된 아이콘에 대해서만 필터 효과 적용
-          if (selectedClass === this.className) {
-              this.style.filter = "invert(70%) sepia(99%) saturate(5414%) hue-rotate(170deg) brightness(102%) contrast(97%)";
-          }
-      });
-  });
-});
+//           // 선택된 아이콘에 대해서만 필터 효과 적용
+//           if (selectedClass === this.className) {
+//               this.style.filter = "invert(70%) sepia(99%) saturate(5414%) hue-rotate(170deg) brightness(102%) contrast(97%)";
+//           }
+//       });
+//   });
+// });
 
 
 
@@ -164,18 +164,23 @@ var sportsImages = document.querySelectorAll('.sports img');
 var currentPage = null; // 초기값은 null
 
 Array.from(sportsImages).forEach(function(image) {
-    image.addEventListener('click', function() {
-        let selectedSports = image.classList[0];  // 하나의 클래스만 받아와야 함
-        if (currentPage && currentPage === selectedSports) {
+  image.addEventListener('click', function() {
+      document.querySelectorAll(".sports img").forEach(function(icon) {
+          icon.style.removeProperty('filter'); // 필터 속성 제거
+      });
+      let selectedSports = image.classList[0];  // 하나의 클래스만 받아와야 함
+      if (currentPage && currentPage === selectedSports) {
           currentPage = null;
+          this.style.removeProperty('filter'); // 필터 속성 제거
           filterMatches(null); // 필터링 함수 호출
-        } else {
+      } else {
           currentPage = selectedSports;
+          this.style.filter = "invert(70%) sepia(99%) saturate(5414%) hue-rotate(170deg) brightness(102%) contrast(97%)"; //아이콘 색 변경
           filterMatches(selectedSports); // 필터링 함수 호출
-        }
-        addHiddenClassToMatchDate(); // match_date 태그 hidden 처리 함수 호출
-        hideDuplicateMatchDates();  // 하단 match_date 중복제거 function
-    });
+      }
+      addHiddenClassToMatchDate(); // match_date 태그 hidden 처리 함수 호출
+      hideDuplicateMatchDates();  // 하단 match_date 중복제거 function
+  });
 });
 //
 
@@ -240,6 +245,16 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 //
 
+// 로컬스토리지에서 theme 값을 가져옴
+const theme = localStorage.getItem('theme');
+
+// 만약 theme 값이 dark이면 스타일을 적용
+if (theme === 'dark') {
+    // date 요소의 폰트 색상을 하얀색으로 설정
+    const dateInput = document.getElementById('selectedDate');
+    dateInput.style.color = 'white';
+}
+//
 
 
 // match_date 태그 hidden 처리
