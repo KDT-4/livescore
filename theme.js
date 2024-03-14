@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     body.style.color = 'black'; // 텍스트 색상을 검정색으로
     lightMode.style.borderColor = 'lightblue'; // 라이트 모드 컨테이너에 파란색 테두리 추가
     darkMode.style.borderColor = 'transparent'; // 다크 모드 컨테이너 테두리 제거
-    lightModeButton.style.backgroundColor = 'gray'; // 라이트 모드 버튼 채우기
+    lightModeButton.style.backgroundColor = '#526D82'; // 라이트 모드 버튼 채우기
     darkModeButton.style.backgroundColor = 'transparent'; // 다크 모드 버튼 배경 제거
   });
 
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     body.style.color = 'white'; // 텍스트 색상을 흰색으로
     darkMode.style.borderColor = 'lightblue'; // 다크 모드 컨테이너에 파란색 테두리 추가
     lightMode.style.borderColor = 'transparent'; // 라이트 모드 컨테이너 테두리 제거
-    darkModeButton.style.backgroundColor = 'gray'; // 다크 모드 버튼 채우기
+    darkModeButton.style.backgroundColor = '#526D82'; // 다크 모드 버튼 채우기
     lightModeButton.style.backgroundColor = 'transparent'; // 라이트 모드 버튼 배경 제거
   });
   });
