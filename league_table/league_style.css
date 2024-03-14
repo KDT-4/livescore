@@ -7,12 +7,12 @@ html{
 }
 
 .ptable table{
-	margin: 30px auto;
-	border-collapse: collapse;
+   margin: 30px auto;
+   border-collapse: collapse;
 }
 
 .ptable{
-	margin: 0px 0% 30px 0%;
+   margin: 0px 0% 30px 0%;
 }
 
 th, td {
@@ -20,58 +20,58 @@ th, td {
 }
 
 th{
-	background-color: #526D82;
-	color: #fff;
+   background-color: #526D82;
+   color: #fff;
 }
 
 .headin{
-	text-align: center;
-	text-decoration: none;
-	color: #fff;
-	margin: 30px;
-	display: block;
+   text-align: center;
+   text-decoration: none;
+   color: #fff;
+   margin: 30px;
+   display: block;
 }
 
 /* 1위 ~ 3위 테이블 속성 */
 .wpos{
     background-color: #fff;
-	text-align: center;
+   text-align: center;
 }
 
 .wpos td{
-	color: #000000;
+   color: #000000;
 }
 
 /* 커서를 갖다 댄 경우 */
 .wpos:hover{
-	background-color: #77ff21;
+   background-color: #77ff21;
 }
 
 .wpos:hover td{
-	color: #000000;
+   color: #000000;
 }
 
 /* 나머지 순위 테이블 속성 */ 
 .pos{
     background-color: #fff;
-	text-align: center;
+   text-align: center;
 }
 
 .pos td{
-	color: #000000;
+   color: #000000;
 }
 
 /* 커서를 갖다 댄 경우 */
 .pos:hover{
-	background-color: #ff7b21;
+   background-color: #ff7b21;
 }
 
 .pos:hover td{
-	color: #000000;
+   color: #000000;
 }
 
 table .col{
-	border-bottom: 1px solid #FFFFFF;
+   border-bottom: 1px solid #FFFFFF;
 }
 
 
@@ -113,14 +113,16 @@ h1 {
 
   /* 하단 네비게이션 바 */
 
-.nav {
+  .nav {
     display: flex;
     justify-content: space-between;
     background-color: #fdfdfe;
     padding: 10px;
     position: sticky;
     bottom: 0;
+    /* margin-left: 0; */ /* 왼쪽 여백 제거 */
     width: 100%;
+    left: 0; /* 왼쪽 끝에 정렬 */
 }
   
 .nav a {
@@ -138,6 +140,33 @@ h1 {
 .nav-icon {
     height: 24px;
     margin-bottom: 5px;
+}
+.home {
+  margin: 20px 5%;
+}
+/* sports */
+.home > .sports {
+  justify-content: space-between;
+  box-sizing: border-box;
+  display: flex;
+  overflow: auto;
+  height: 80px;
+  /* background-color: rgba(99, 154, 77, 0.5); */
+  /* padding: 20px; */
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 10px;
+  cursor: pointer; /* 모바일 불필요 pc테스트용*/
+}
+.home > .sports::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera에서 스크롤바 숨기기 기능 */
+}
+.home > .sports > img {
+  margin: 20px;
+  cursor: pointer;
+}
+.home > .sports > img:hover {
+  margin: 20px;
+  animation: shadow-drop-center 0.1s ease;
 }
   
 /*종목 선택 버튼*/
@@ -219,4 +248,4 @@ h1 {
   }
   #score_menu ul li.volley a{
     background-position:-198px 0px;
-  }
+  }   
