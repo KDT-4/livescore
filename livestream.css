@@ -1,0 +1,128 @@
+.container {
+    height: 181px;
+    position: relative;
+    background-color: #eff0ed;
+    border-radius: 10px;
+    margin: 30px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.second-container {
+    height: 377px;
+    position: relative;
+    background-color: #eff0ed;
+    border-radius: 10px;
+    margin: 30px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+}
+
+.play-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.play-button img {
+    width: 88px;
+    height: 88px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #D9D9D9;
+    background-color: #eff0ed;
+    z-index: 2;
+}
+
+.chat-title {
+    font-size: 17px;
+    margin-left: 20px;
+    margin: 15px;
+}
+
+.menu-content {
+    position: relative;
+    width: 100%;
+    overflow-y: auto;
+    max-height: 290px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.chats-wrapper {
+    overflow-y: auto;
+    max-height: 290px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.chat {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.chat-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.chat-text {
+    margin-left: 10px;
+    text-align: left;
+    overflow-wrap: break-word !important;
+    max-width: 90%;
+}
+
+.chat-timestamp {
+    margin-left: auto;
+}
+
+.typing-area {
+    display: flex;
+    align-items: center;
+    background-color: #eff0ed;
+    padding: 5px;
+    border-radius: 20px;
+    margin: 30px;
+}
+
+.profile-icon {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+}
+
+#chatInput {
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    font-size: 14px;
+    margin-top: 13px;
+}
+
+.send-icon {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin: 0 10px;
+}

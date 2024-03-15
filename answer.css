@@ -12,7 +12,7 @@ h2{
   margin-left:20px;
 }
 
-.container, .container1, .container2, .container3, .container4, .container5 {
+.containerr, .containerr1, .containerr2, .containerr3, .containerr4, .containerr5 {
   display: flex;
   align-items: center;
   z-index:200;
