@@ -65,7 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 라이트 모드 버튼 클릭 이벤트
-lightModeButton?.addEventListener('click', () => {
+lightModeButton?.addEventListener('click', toggleLightMode);
+function toggleLightMode() {
   body.classList.remove('dark-mode-active'); // 다크 모드 클래스 제거
   body.style.backgroundColor = 'white'; // 배경을 흰색으로
   body.style.color = 'black'; // 텍스트 색상을 검정색으로
@@ -75,10 +76,11 @@ lightModeButton?.addEventListener('click', () => {
   darkModeButton.style.backgroundColor = 'transparent'; // 다크 모드 버튼 배경 제거
   localStorage.setItem('theme', 'light'); // 테마 설정 저장
   updateTheme('light');
-});
+};
 
 // 다크 모드 버튼 클릭 이벤트
-darkModeButton?.addEventListener('click', () => {
+darkModeButton?.addEventListener('click', toggleDarkMode);
+function toggleDarkMode() {
   body.classList.add('dark-mode-active'); // 다크 모드 클래스 추가
   body.style.backgroundColor = 'black'; // 배경을 검정색으로
   body.style.color = 'white'; // 텍스트 색상을 흰색으로
@@ -88,7 +90,7 @@ darkModeButton?.addEventListener('click', () => {
   lightModeButton.style.backgroundColor = 'transparent'; // 라이트 모드 버튼 배경 제거
   localStorage.setItem('theme', 'dark'); // 테마 설정 저장
   updateTheme('dark');
-  });
+};
 // 다른 페이지에 설정 적용
 function applyPreviousSettings() {
   // 글자 크기 설정 불러오기 및 적용
@@ -137,6 +139,27 @@ function updateTheme(theme) {
     });
   }
 }
+
+// 현재 페이지의 URL을 확인
+if (window.location.pathname.includes("theme.html")) {
+  // "#nav-item4 .nav-icon" 요소를 선택하여 필터 스타일을 적용
+  var navIcon = document.querySelector("#nav-item4 .nav-icon");
+  if (navIcon) {
+      navIcon.style.filter = "invert(70%) sepia(99%) saturate(5414%) hue-rotate(170deg) brightness(102%) contrast(97%)";
+  }
+
+  // 테마toggle버튼 유지
+  const theme = localStorage.getItem('theme');
+  if (theme === 'light') {
+  toggleLightMode();
+  } else {
+  toggleDarkMode();
+  }
+
+  // 폰트크기 slide 유지
+  const adjustFontSize = localStorage.getItem('fontSize');
+    document.getElementById('font-slider').value = adjustFontSize;
+  }
 });
 
 

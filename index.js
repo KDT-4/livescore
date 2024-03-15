@@ -3,27 +3,6 @@ console.log("test")
 
 
 
-// // 클릭 시 이미지 filter style 적용. 스포츠 필터기능의 selectedClass 의 값으로 판단함
-// document.addEventListener("DOMContentLoaded", function() {
-//   const sportsIcons = document.querySelectorAll(".sports img");
-
-//   sportsIcons.forEach(function(icon) {
-//       icon.addEventListener("click", function() {
-//           // 모든 아이콘의 필터 효과 초기화
-//           sportsIcons.forEach(function(icon) {
-//               icon.style.filter = "none";
-//           });
-
-//           // 선택된 아이콘에 대해서만 필터 효과 적용
-//           if (selectedClass === this.className) {
-//               this.style.filter = "invert(70%) sepia(99%) saturate(5414%) hue-rotate(170deg) brightness(102%) contrast(97%)";
-//           }
-//       });
-//   });
-// });
-
-
-
 // 클릭시 즐겨찾기(별) 이미지 바꾸기 및 로컬스토리지에 저장
 function toggleFavorite(imgElement) {
   var value = imgElement.getAttribute('value');
@@ -37,7 +16,6 @@ function toggleFavorite(imgElement) {
     // 로컬 스토리지에 저장
     if (elementId) {
       var htmlString = wrapperElement.outerHTML;
-      console.log(elementId, htmlString);
       localStorage.setItem(elementId, htmlString);
     }
   } else {
@@ -58,7 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (htmlString) {
       var wrapperElement = document.getElementById(key);
       if (wrapperElement) {
-        wrapperElement.innerHTML = htmlString;
+        wrapperElement.outerHTML = htmlString;
+        //////////////////
         var imgElement = wrapperElement.querySelector('.star');
         if (imgElement) {
           var value = imgElement.getAttribute('value');
@@ -100,6 +79,12 @@ document.addEventListener('DOMContentLoaded', function() {
   var searchLink = document.getElementById('searchButton');
   var livescoreLink = document.getElementById('livescore-elemenet4');
 
+  function handleClick(event) {
+    if (event.target.closest('.livescore-elemenet') && event.target.tagName !== 'IMG') {
+        window.location.href = 'livescore.html';
+    }
+  }
+
   // 클릭 이벤트 핸들러를 추가
   favoritesLink.addEventListener('click', function(event) {
     window.location.href = 'favorites.html';
@@ -117,9 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.location.href = 'search.html';
   });
 
-  livescoreLink.addEventListener('click', function(event) {
-    window.location.href = 'livescore.html';
-  });
+  livescoreLink.addEventListener('click', handleClick);
 });
 //
 
@@ -154,6 +137,7 @@ dateInput.addEventListener('change', function() {   // 날짜 선택 enectListen
     });
   }
   hideDuplicateMatchDates();  // 하단 match_date 중복제거 function
+  addHiddenClassToMatchDate(); // match_date 태그 hidden 처리 함수 호출
 });
 //
 
@@ -178,8 +162,9 @@ Array.from(sportsImages).forEach(function(image) {
           this.style.filter = "invert(70%) sepia(99%) saturate(5414%) hue-rotate(170deg) brightness(102%) contrast(97%)"; //아이콘 색 변경
           filterMatches(selectedSports); // 필터링 함수 호출
       }
-      addHiddenClassToMatchDate(); // match_date 태그 hidden 처리 함수 호출
       hideDuplicateMatchDates();  // 하단 match_date 중복제거 function
+      addHiddenClassToMatchDate(); // match_date 태그 hidden 처리 함수 호출
+
   });
 });
 //
@@ -262,25 +247,27 @@ if (theme === 'dark') {
 function addHiddenClassToMatchDate() {
   var matchDateElements = document.querySelectorAll('.match_date');
 
+  // 중복을 처리하기 위해 사용할 객체 생성
+  var uniqueDates = {};
+
   matchDateElements.forEach(function(matchDateElement) {
-      var siblingMatchElements = matchDateElement.parentElement.querySelectorAll('.livescore-elemenet');
-      var allHidden = true;
-
-      siblingMatchElements.forEach(function(element) {
-          if (!element.classList.contains('hidden')) {
-              allHidden = false;
-              return;
-          }
-      });
-
-      if (allHidden) {
-          matchDateElement.classList.add('hidden');
+    if (!matchDateElement.classList.contains('hidden')) {
+      // 중복되는지 확인
+      if (uniqueDates.hasOwnProperty(matchDateElement.innerText)) {
+        // 중복되면 hidden 클래스 추가
+        matchDateElement.classList.add('hidden');
+        // 기존 요소를 hidden 처리하기 위해 uniqueDates에서 해당 요소를 가져와 hidden 클래스 추가
+        uniqueDates[matchDateElement.innerText].classList.add('hidden');
       } else {
-          matchDateElement.classList.remove('hidden');
+        // 중복되지 않으면 객체에 추가
+        uniqueDates[matchDateElement.innerText] = matchDateElement;
       }
+    }
   });
 }
-//
+
+
+
 
 
 

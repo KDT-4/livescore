@@ -3,248 +3,247 @@
 } */
 
 .box {
-    background-color: #e7e7e7e7;
-    color: #000000;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column; /* 자식 요소들을 세로로 쌓음 */
-    align-items: flex-start; /* 자식 요소들을 시작점(왼쪽)으로 정렬 */
-    justify-content: flex-start; /* 자식 요소들을 시작점(상단)으로 정렬 */
-    align-items: center;
-    justify-content: center;
-    height: auto; /* 박스 높이를 자동으로 조정하여 내용물에 맞춤 */
-    margin: 40px 40px; /* 상하 좌우 여백 설정 */
-    padding: 20px; /* 내부 패딩 설정 */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-  
-  .slider-container {
-    width: calc(100% - 30px); /* 컨테이너 너비를 박스 패딩을 고려하여 조정 */
-    text-align: center; /* 텍스트 중앙 정렬 */
-    padding: 20px; /* 여백이 없도록 설정 */
-  }
-  .slider {
-    position: relative; /* 가상 요소의 포지셔닝 기준점 */
-    width: 90%; /* 슬라이더 전체 너비 */
-    height: 2px; /* 슬라이더 두께 */
-    background: #d3d3d3; /* 슬라이더 배경색 */
-    outline: none; /* 외곽선 제거 */
-    opacity: 0.7; /* 슬라이더 투명도 */
-    transition: opacity .2s;
-  }
-  
-  /* 슬라이더 핸들 스타일 */
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* 기본 스타일링 초기화 */
-    appearance: none;
-    width: 25px; /* 핸들의 너비 */
-    height: 25px; /* 핸들의 높이 */
-    border-radius: 50%; /* 원형 핸들 */
-    background: #4CAF50; /* 핸들의 배경색 */
-    cursor: pointer; /* 커서 모양 변경 */
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 25px; /* 핸들의 너비 */
-    height: 25px; /* 핸들의 높이 */
-    border-radius: 50%; /* 원형 핸들 */
-    background: #4CAF50; /* 핸들의 배경색 */
-    cursor: pointer; /* 커서 모양 변경 */
-  }
-  
-  /* 레이블 스타일 */
-  .slider-label {
-    font-size: 18px; /* 글자 크기 */
-    font-weight: bold; /* 글자 두께 */
-    text-align: left; /* 텍스트 왼쪽 정렬 */
-    padding: 4px 0; /* 상하 패딩 */
-  }
-  
-  /* 글자 크기 아이콘 */
-  .slider-icon {
-    font-size: 16px; /* 아이콘 기본 폰트 크기 */
-    vertical-align: middle; /* 세로 정렬 */
-    margin: 0 10px; /* 좌우 여백 */
-  }
-  
-  /* 슬라이더와 아이콘을 포함하는 레이아웃 */
-  .slider-row {
-    display: flex; /* 플렉스 컨테이너 설정 */
-    align-items: center; /* 가로축 정렬 */
-    justify-content: space-between; /* 요소 사이의 여백을 균등 분포 */
-    max-width: 120%; /* 최대 너비 설정 */
-    margin: auto; /* 가로 중앙 정렬 */
-  }
-  /* 슬라이더 트랙의 양 끝에 점을 추가하기 위한 스타일 */
+  background-color: #e7e7e7e7;
+  color: #000000;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column; /* 자식 요소들을 세로로 쌓음 */
+  align-items: flex-start; /* 자식 요소들을 시작점(왼쪽)으로 정렬 */
+  justify-content: flex-start; /* 자식 요소들을 시작점(상단)으로 정렬 */
+  align-items: center;
+  justify-content: center;
+  height: auto; /* 박스 높이를 자동으로 조정하여 내용물에 맞춤 */
+  margin: 40px 40px; /* 상하 좌우 여백 설정 */
+  padding: 20px; /* 내부 패딩 설정 */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.slider-container {
+  width: calc(100% - 30px); /* 컨테이너 너비를 박스 패딩을 고려하여 조정 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  padding: 20px; /* 여백이 없도록 설정 */
+}
+.slider {
+  position: relative; /* 가상 요소의 포지셔닝 기준점 */
+  width: 90%; /* 슬라이더 전체 너비 */
+  height: 2px; /* 슬라이더 두께 */
+  background: #d3d3d3; /* 슬라이더 배경색 */
+  outline: none; /* 외곽선 제거 */
+  opacity: 0.7; /* 슬라이더 투명도 */
+  transition: opacity .2s;
+}
+
+/* 슬라이더 핸들 스타일 */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* 기본 스타일링 초기화 */
+  appearance: none;
+  width: 25px; /* 핸들의 너비 */
+  height: 25px; /* 핸들의 높이 */
+  border-radius: 50%; /* 원형 핸들 */
+  background: #4CAF50; /* 핸들의 배경색 */
+  cursor: pointer; /* 커서 모양 변경 */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* 핸들의 너비 */
+  height: 25px; /* 핸들의 높이 */
+  border-radius: 50%; /* 원형 핸들 */
+  background: #4CAF50; /* 핸들의 배경색 */
+  cursor: pointer; /* 커서 모양 변경 */
+}
+
+/* 레이블 스타일 */
+.slider-label {
+  font-size: 18px; /* 글자 크기 */
+  font-weight: bold; /* 글자 두께 */
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+  padding: 4px 0; /* 상하 패딩 */
+}
+
+/* 글자 크기 아이콘 */
+.slider-icon {
+  font-size: 16px; /* 아이콘 기본 폰트 크기 */
+  vertical-align: middle; /* 세로 정렬 */
+  margin: 0 10px; /* 좌우 여백 */
+}
+
+/* 슬라이더와 아이콘을 포함하는 레이아웃 */
+.slider-row {
+  display: flex; /* 플렉스 컨테이너 설정 */
+  align-items: center; /* 가로축 정렬 */
+  justify-content: space-between; /* 요소 사이의 여백을 균등 분포 */
+  max-width: 120%; /* 최대 너비 설정 */
+  margin: auto; /* 가로 중앙 정렬 */
+}
+/* 슬라이더 트랙의 양 끝에 점을 추가하기 위한 스타일 */
 .slider::before,
 .slider::after {
-  content: ''; /* 가상 요소의 내용 */
-  position: absolute; /* 절대 위치 */
-  top: 50%; /* 상위 요소의 중앙에 위치 */
-  transform: translateY(-50%); /* Y축 중앙 정렬 */
-  width: 8px; /* 점의 너비 */
-  height: 8px; /* 점의 높이 */
-  background-color: #000; /* 점의 배경색 */
-  border-radius: 50%; /* 원형으로 만듦 */
+content: ''; /* 가상 요소의 내용 */
+position: absolute; /* 절대 위치 */
+top: 50%; /* 상위 요소의 중앙에 위치 */
+transform: translateY(-50%); /* Y축 중앙 정렬 */
+width: 8px; /* 점의 너비 */
+height: 8px; /* 점의 높이 */
+background-color: #000; /* 점의 배경색 */
+border-radius: 50%; /* 원형으로 만듦 */
 }
 
 .slider::before {
-  left: -4px; /* 왼쪽 끝에 위치하도록 조정 */
+left: -4px; /* 왼쪽 끝에 위치하도록 조정 */
 }
 
 .slider::after {
-  right: -4px; /* 오른쪽 끝에 위치하도록 조정 */
+right: -4px; /* 오른쪽 끝에 위치하도록 조정 */
 }
 
 /* 작은 A의 스타일 */
 .slider-icon-small {
-  font-size: 12px; /* 작은 A의 폰트 크기 */
-  /* 나머지 스타일은 이전과 동일 */
+font-size: 12px; /* 작은 A의 폰트 크기 */
+/* 나머지 스타일은 이전과 동일 */
 }
 
 /* 큰 A의 스타일 */
 .slider-icon-large {
-  font-size: 20px; /* 큰 A의 폰트 크기 */
-  /* 나머지 스타일은 이전과 동일 */
+font-size: 20px; /* 큰 A의 폰트 크기 */
+/* 나머지 스타일은 이전과 동일 */
 }
 
 .screen-styles {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-  .mode-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0 10px;
-  }
+.mode-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 10px;
+}
 
-  .light-container, .dark-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100px;
-    width: 50%;
-  }
+.light-container, .dark-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100px;
+  width: 50%;
+}
 
-  .light-mode, .dark-mode {
-    border: 2px solid transparent; /* 초기 테두리 설정 */
-    height: 100px;
-    width: 90%;
-    margin-bottom: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    border-radius: 10px;
-  }
-  
-  .light-mode {
-    background-color: white;
-  }
-  
-  .dark-mode {
-    background-color: black;
-  }
+.light-mode, .dark-mode {
+  border: 2px solid transparent; /* 초기 테두리 설정 */
+  height: 100px;
+  width: 90%;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
 
-  .light-mode-text, .dark-mode-text {
-    text-align: right;
-  }
+.light-mode {
+  background-color: white;
+}
 
-  .light-mode-button, .dark-mode-button {
-    height: 20px;
-    width: 20px;
-    margin-left: 10px; /* 텍스트와 버튼 사이의 여백 */
-    border: 2px solid #000; /* 버튼의 테두리 */
-    border-radius: 35%; /* 원형 버튼 */
-    background: white;
-    cursor: pointer;
-    position: relative; /* 체크 표시를 위한 포지셔닝 기준 */
-  }
+.dark-mode {
+  background-color: black;
+}
 
-  .service-center {
-    font-size: 18px; /* 글자 크기 */
-    font-weight: bold; /* 글자 두께 */
-    text-align: left; /* 텍스트 왼쪽 정렬 */
-    padding: 4px 0; /* 상하 패딩 */
-  }
+.light-mode-text, .dark-mode-text {
+  text-align: right;
+}
 
-  .frequently_questions, .contact_us {
-    background-color: #cccbcb;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    width: 85%;
-    height: 30px;
-    padding: 10px 20px;
-    margin-top: 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  }
+.light-mode-button, .dark-mode-button {
+  height: 20px;
+  width: 20px;
+  margin-left: 10px; /* 텍스트와 버튼 사이의 여백 */
+  border: 2px solid #000; /* 버튼의 테두리 */
+  border-radius: 35%; /* 원형 버튼 */
+  background: white;
+  cursor: pointer;
+  position: relative; /* 체크 표시를 위한 포지셔닝 기준 */
+}
 
-  .use-terms {
-    font-size: 18px; /* 글자 크기 */
-    font-weight: bold; /* 글자 두께 */
-    text-align: left; /* 텍스트 왼쪽 정렬 */
-    padding: 4px 0; /* 상하 패딩 */
-  }
+.service-center {
+  font-size: 18px; /* 글자 크기 */
+  font-weight: bold; /* 글자 두께 */
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+  padding: 4px 0; /* 상하 패딩 */
+}
 
-  /* 다크 모드 활성화시 박스 스타일 */
+.frequently_questions, .contact_us {
+  background-color: #cccbcb;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 85%;
+  height: 30px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.use-terms {
+  font-size: 18px; /* 글자 크기 */
+  font-weight: bold; /* 글자 두께 */
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+  padding: 4px 0; /* 상하 패딩 */
+}
+
+/* 다크 모드 활성화시 박스 스타일 */
 .dark-mode-active .box {
-  background-color: #333; /* 짙은 회색으로 변경 */
-  color: #fff; /* 글자색 흰색으로 변경 */
+background-color: #333; /* 짙은 회색으로 변경 */
+color: #fff; /* 글자색 흰색으로 변경 */
 }
 
 .dark-mode-active .livescore {
-  background-color: #333;
-  color: #fff;
+background-color: #333;
+color: #fff;
 }
 
 .dark-mode-active .match_date {
-  background-color: rgb(20, 20, 40);
-  color: #fff;
+background-color: rgb(20, 20, 40);
+color: #fff;
 }
 
 .dark-mode-active .wpos {
-  background-color: rgb(65, 65, 92);
-  color: #fff;
+background-color: rgb(65, 65, 92);
+color: #fff;
 }
 .dark-mode-active .pos {
-  background-color: rgb(65, 65, 92);
-  color: #fff;
+background-color: rgb(65, 65, 92);
+color: #fff;
 }
 .dark-mode-active td {
-  background-color: rgb(65, 65, 92);
-  color: #fff;
+background-color: rgb(65, 65, 92);
+color: #fff;
 }
 
 .dark-mode-active .container {
-  background-color: #333;
-  color: #fff;
+background-color: #333;
+color: #fff;
 }
 
 .dark-mode-active .second-container {
-  background-color: #333;
-  color: #fff;
+background-color: #333;
+color: #fff;
 }
 
 .dark-mode-active .sports {
-  background-color: #333;
-  color: #fff;
+background-color: #333;
+color: #fff;
 }
 
 .filter-white {
-  filter: invert(100%);
+filter: invert(100%);
 }
 
 /* #selectedDate {
-  color: #fff;
+color: #fff;
 } */
 
 /* 다크 모드용 스타일 */
 .dark-mode input[type="date"] {
-  background: url(src/icon_calendar_dark.png) no-repeat right 30px center / 20px auto; /* 다크 모드용 아이콘 */
-  color: white; /* 다크 모드용 텍스트 색상 */
-  padding-right: 40px; /* 아이콘과 필드 오른쪽 경계 사이의 간격 조정 */
+color: white; /* 다크 모드용 텍스트 색상 */
+padding-right: 40px; /* 아이콘과 필드 오른쪽 경계 사이의 간격 조정 */
 }
