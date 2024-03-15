@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
 
   applyPreviousSettings();
+
+  slider.addEventListener('input', () => {
+    adjustFontSize(slider.value);
+});
   
   // 클릭 이벤트 핸들러를 추가
   homeLink?.addEventListener('click', function(event) {
@@ -93,19 +97,14 @@ darkModeButton?.addEventListener('click', () => {
 function applyPreviousSettings() {
   // 글자 크기 설정 불러오기 및 적용
   const savedFontSize = localStorage.getItem('fontSize');
-  console.log("Saved Font Size:", savedFontSize); // 진단을 위한 로그
   if (savedFontSize) {
     updateFontSize(savedFontSize);
-  } else {
-    updateFontSize("100");
   }
 
   // 테마 설정 불러오기 및 적용
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) {
     updateTheme(savedTheme);
-  } else {
-    updateTheme("light");
   }
 }
 
@@ -114,6 +113,17 @@ function updateFontSize(fontSize) {
   document.querySelectorAll('*').forEach(element => {
     element.style.fontSize = `${fontSize}px`;
   });
+}
+
+function adjustFontSize(size, save = true) {
+  body.style.fontSize = `${size}px`;
+  elementsToResize.forEach(element => {
+      element.style.fontSize = `${size}px`;
+  });
+  slider.value = size; // 슬라이더 위치를 현재 폰트 크기에 맞게 조정
+  if (save) {
+      localStorage.setItem('fontSize', size);
+  }
 }
 
 function updateTheme(theme) {
