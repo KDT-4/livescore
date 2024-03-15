@@ -20,6 +20,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 //
 
+// 정렬
+function compareDates(a, b) {
+  // 먼저 각 요소에서 match_date 클래스를 가진 요소를 찾고 해당 요소의 텍스트 값을 가져옴
+  var dateA = getDateFromString(a.querySelector('.match_date').textContent.trim());
+  var dateB = getDateFromString(b.querySelector('.match_date').textContent.trim());
+
+  // Date 객체 비교를 통해 내림차순으로 정렬함
+  if (dateA > dateB) return -1;
+  if (dateA < dateB) return 1;
+  return 0;
+}
 
 
 ////////// local storage에서 내림차순으로 데이터를 받아와서 추가함.
@@ -28,38 +39,44 @@ window.onload = function() {
 };
 //
 function loadElementFromLocalStorage() {
-  var localStorageLength = localStorage.length;
   var elements = [];
   // 모든 키에 대해 loop해서 값을 가져와서 elements 배열에 추가
-  for (var i = 0; i < localStorageLength; i++) {
+  for (var i = 0; i < localStorage.length; i++) {
     var key = localStorage.key(i);
     var savedHTML = localStorage.getItem(key);
-
-    if (savedHTML) {
-      var container = document.createElement('div');
-      container.innerHTML = savedHTML;
-      console.log(container);
-      // console.log(container.firstElementChild);
-      elements.push(container.firstElementChild);
+    // String을 Element로 바꾸는 코드 라고 함.
+    var fragment = document.createRange().createContextualFragment(savedHTML);
+    var element = fragment.firstElementChild;
+    if (element) {
+      elements.push(element);
     }
   }
-  console.log(elements);
-  // match_date를 기준으로 elements 배열을 내림차순으로 정렬
-  // elements.sort(function(a, b) {
-  //   var dateA = getDateFromString(a.querySelector('.match_date').textContent);
-  //   var dateB = getDateFromString(b.querySelector('.match_date').textContent);
-  //   return dateB - dateA;
-  // });
+
+  //
+  elements.sort(compareDates);  // 정렬
+
   var livescoreSection = document.querySelector('.livescore');
   if (livescoreSection) {
-    // 정렬된 요소들을 livescore 섹션 안에 추가
+    // white-filter문제
     elements.forEach(function(element) {
       if (element) {
+        if (localStorage.getItem('theme') === 'dark') {
+          var imgTags = element.querySelectorAll('.sports-icon')
+          imgTags.forEach(function(imgTag) {
+          imgTag.classList.add('filter-white');
+        });
+        } else if (localStorage.getItem('theme') === 'light') {
+          var imgTags = element.querySelectorAll('.sports-icon')
+          imgTags.forEach(function(imgTag) {
+          imgTag.classList.remove('filter-white');
+        });
+        }
         livescoreSection.appendChild(element);
       }
     });
   }
 }
+
 function getDateFromString(dateString) {
   // (ex) "03-14" 형식의 문자열을 Date 객체로 변환하여 반환
   var parts = dateString.split('-');
