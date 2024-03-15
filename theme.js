@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
 
   applyPreviousSettings();
+
+  slider.addEventListener('input', () => {
+    adjustFontSize(slider.value);
+});
   
   // 클릭 이벤트 핸들러를 추가
   homeLink?.addEventListener('click', function(event) {
@@ -109,6 +113,17 @@ function updateFontSize(fontSize) {
   document.querySelectorAll('*').forEach(element => {
     element.style.fontSize = `${fontSize}px`;
   });
+}
+
+function adjustFontSize(size, save = true) {
+  body.style.fontSize = `${size}px`;
+  elementsToResize.forEach(element => {
+      element.style.fontSize = `${size}px`;
+  });
+  slider.value = size; // 슬라이더 위치를 현재 폰트 크기에 맞게 조정
+  if (save) {
+      localStorage.setItem('fontSize', size);
+  }
 }
 
 function updateTheme(theme) {
